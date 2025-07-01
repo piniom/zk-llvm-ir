@@ -1,0 +1,33 @@
+
+===
+Zero knowledge analysis on LLVM IR
+
+1. Write a simple contract in Rust by using `cargo stylus` ecosystem.
+2. Generate LLVM IR out of it.
+3. Write LLVM IR Analysis that will do Zero Knowledge proof for the IR.
+4. Generate a circuit and send a proof on chain.
+
+Share this via GitHub repository dedicated to this only.
+====
+
+
+Verbose info and message:
+
+===
+Hey! For this task, we want you to explore the intersection of smart contracts, LLVM internals, and zero-knowledge proofs.
+
+Start by writing a really simple smart contract using the cargo stylus toolchain. Keep it small — just something with a bit of logic, maybe a function that takes an input and returns a boolean based on some deterministic computation. It can be as basic as checking if a number is divisible by something, or if a hash matches a constant.
+
+Once that's done, compile it and generate the LLVM IR from the contract. You can use cargo rustc -- --emit=llvm-ir to dump the .ll file. That's the intermediate representation we'll use for analysis.
+
+Now for the fun part: write a small LLVM IR analysis pass that walks over the IR and pulls out the parts of the computation that are relevant for generating a zero-knowledge proof. Think in terms of extracting input/output relationships and recording how values flow through the logic — kind of like building a trace of the computation. You don’t need to make a full proof system. Just focus on extracting a representation that could be turned into a ZK circuit (e.g., operations and constraints that would go into something like Circom or Halo2). After generating the circuit, compile it, create a Verifier contract, deploy it to a testnet, and submit a valid proof to the contract that corresponds to the logic extracted from the LLVM IR.
+
+Finally, throw everything into a GitHub repo.  That should include the original contract, the IR dump, your analysis code, and a README explaining how to run the analysis, how the circuit is generated, how the zero-knowledge proof is constructed (step-by-step), and how the Verifier contract is deployed and used to validate the proof. Be sure to document what your output represents and why it matters.
+
+It's totally okay to keep it minimal as long as you demonstrate the reasoning.
+
+Looking forward to seeing how you approach this. Have fun with it!
+
+===
+
+
