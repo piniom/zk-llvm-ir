@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use llvm_ir::{function::Parameter, terminator::Ret, ConstantRef, Function, Instruction, Operand, Terminator};
+use llvm_ir::{Function, Instruction, Terminator, function::Parameter, terminator::Ret};
 
 use crate::instructions::*;
 
@@ -12,24 +12,6 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
 
     for instruction in &block.instrs {
         match instruction {
-            Instruction::Call(call) => {
-                let function = call.function.clone().expect_right("");
-                match function {
-                    Operand::ConstantOperand(global_ref) => {
-                        match global_ref.as_ref() {
-                            llvm_ir::Constant::GlobalReference { name , .. } => {
-                                match name.to_string().as_str() {
-                                    "%llvm.uadd.with.overflow.i32" => println!("Hurra!"),
-                                    other if SKIPP_CALLS.iter().any(|c| other.to_string().contains(c)) => (),
-                                    n => unimplemented!("{n}")
-                                }
-                            }
-                            c => unimplemented!("{c}")
-                        }
-                    }
-                    o => unimplemented!("{o}")
-                }
-            }
             Instruction::Mul(mul) => {
                 let dest = signals.reference(mul.dest.to_simple_string());
                 let i = ConstraintGenerationAssigment {

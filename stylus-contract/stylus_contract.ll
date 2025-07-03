@@ -2396,6 +2396,8 @@ bb8:                                              ; preds = %bb4, %bb6
 ; Function Attrs: uwtable
 define zeroext i1 @_ZN15stylus_contract14SimpleContract10mock_check17he725f0d10dfb3ac8E(ptr align 1 %self, i32 %number) unnamed_addr #1 {
 start:
+  %rhs.dbg.spill.i4 = alloca [4 x i8], align 4
+  %self.dbg.spill.i5 = alloca [4 x i8], align 4
   %rhs.dbg.spill.i1 = alloca [4 x i8], align 4
   %self.dbg.spill.i2 = alloca [4 x i8], align 4
   %rhs.dbg.spill.i = alloca [4 x i8], align 4
@@ -2406,16 +2408,19 @@ start:
   %self.dbg.spill = alloca [8 x i8], align 8
   store ptr %self, ptr %self.dbg.spill, align 8
   store i32 %number, ptr %number.dbg.spill, align 4
-  store i32 %number, ptr %self.dbg.spill.i, align 4
-  store i32 %number, ptr %rhs.dbg.spill.i, align 4
-  %_0.i = mul i32 %number, %number
-  store i32 %_0.i, ptr %x.dbg.spill, align 4
-  store i32 %_0.i, ptr %self.dbg.spill.i2, align 4
-  store i32 11, ptr %rhs.dbg.spill.i1, align 4
-  call void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h66906bb427926aa1E"(i32 %_0.i, i32 11) #15
-  %_0.i3 = add nuw i32 %_0.i, 11
-  store i32 %_0.i3, ptr %y.dbg.spill, align 4
-  %_0 = icmp eq i32 %_0.i3, 100
+  store i32 %number, ptr %self.dbg.spill.i2, align 4
+  store i32 %number, ptr %rhs.dbg.spill.i1, align 4
+  %_0.i3 = mul i32 %number, %number
+  store i32 %_0.i3, ptr %x.dbg.spill, align 4
+  store i32 %_0.i3, ptr %self.dbg.spill.i5, align 4
+  store i32 11, ptr %rhs.dbg.spill.i4, align 4
+  call void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h66906bb427926aa1E"(i32 %_0.i3, i32 11) #15
+  %_0.i6 = add nuw i32 %_0.i3, 11
+  store i32 %_0.i6, ptr %self.dbg.spill.i, align 4
+  store i32 10, ptr %rhs.dbg.spill.i, align 4
+  %_0.i = mul i32 %_0.i6, 10
+  store i32 %_0.i, ptr %y.dbg.spill, align 4
+  %_0 = icmp eq i32 %_0.i, 1000
   ret i1 %_0
 }
 
