@@ -6,105 +6,23 @@ use crate::instructions::*;
 
 pub fn ir_to_circom(name: String, function: &Function) -> Template {
     let mut signals = SignalDeclarations::new(&function.parameters);
-    let mut circcom_instrs: Vec<CircomInstr> = vec![];
+    let mut circom_instructions: Vec<CircomInstr> = vec![];
 
     let block = &function.basic_blocks[0];
 
     for instruction in &block.instrs {
-        match instruction {
-            Instruction::Mul(mul) => {
-                let dest = signals.reference(mul.dest.to_simple_string());
-                let i = ConstraintGenerationAssigment {
-                    left: dest,
-                    right: Expression::BinaryOperation(BinaryOperation {
-                        left: CircomOperand::from(&mul.operand0),
-                        op: BinaryOperationType::Mul,
-                        right: CircomOperand::from(&mul.operand1),
-                    }),
-                }
-                .into();
-                circcom_instrs.push(i)
-            }
-            Instruction::Add(add) => {
-                let dest = signals.reference(add.dest.to_simple_string());
-                let i = ConstraintGenerationAssigment {
-                    left: dest,
-                    right: Expression::BinaryOperation(BinaryOperation {
-                        left: CircomOperand::from(&add.operand0),
-                        op: BinaryOperationType::Add,
-                        right: CircomOperand::from(&add.operand1),
-                    }),
-                }
-                .into();
-                circcom_instrs.push(i)
-            }
-            Instruction::URem(urem) => {
-                let dest = signals.reference(urem.dest.to_simple_string());
-                let i = ConstraintGenerationAssigment {
-                    left: dest,
-                    right: Expression::BinaryOperation(BinaryOperation {
-                        left: CircomOperand::from(&urem.operand0),
-                        op: BinaryOperationType::Rem,
-                        right: CircomOperand::from(&urem.operand1),
-                    }),
-                }
-                .into();
-                circcom_instrs.push(i)
-            }
-            Instruction::ICmp(icmp) => {
-                let name = icmp.dest.to_simple_string();
-                let dest = signals.reference(name.clone());
-                let component = ComponentInstatiation {
-                    name: format! {"{}_is_equal", name},
-                    component: "IsEqual".to_string(),
-                };
-                let x = ConstraintGenerationAssigment {
-                    left: component.field("in[0]"),
-                    right: Expression::Operand(CircomOperand::from(&icmp.operand0)),
-                };
-                let y = ConstraintGenerationAssigment {
-                    left: component.field("in[1]"),
-                    right: Expression::Operand(CircomOperand::from(&icmp.operand1)),
-                };
-                let res = ConstraintGenerationAssigment {
-                    left: dest,
-                    right: Expression::Operand(CircomOperand::Reference(component.field("out"))),
-                };
-                circcom_instrs.append(&mut vec![
-                    CircomInstr::from(component),
-                    x.into(),
-                    y.into(),
-                    res.into(),
-                ]);
-            }
-            other if SKIPP_CALLS.iter().any(|c| other.to_string().contains(c)) => (), // Drop the debug info - ideally the IR should be stripped beforehand
-            oth => unimplemented!("{oth}"),
-        };
+        circom_instructions.extend(handle_instruction(&mut signals, instruction));
     }
-
-    match &block.term {
-        Terminator::Ret(Ret { return_operand, .. }) => {
-            let operand = return_operand.as_ref().unwrap();
-            let dest = signals.output_signal();
-            let i = ConstraintGenerationAssigment {
-                left: dest,
-                right: Expression::Operand(CircomOperand::from(operand)),
-            };
-            circcom_instrs.push(i.into());
-        }
-        _ => unimplemented!(),
-    };
+    circom_instructions.extend(handle_return_terminator(&mut signals, &block.term));
 
     Template {
         name,
-        instructions: vec![signals.signals_instructions(), circcom_instrs]
+        instructions: vec![signals.signals_instructions(), circom_instructions]
             .into_iter()
             .flatten()
             .collect(),
     }
 }
-
-const SKIPP_CALLS: &[&str] = &["spill", "precondition_check"];
 
 struct SignalDeclarations {
     declared: HashMap<String, SignalDeclaration>,
@@ -115,6 +33,7 @@ impl SignalDeclarations {
         let declared = parameters
             .iter()
             .map(|p| p.name.to_simple_string())
+            // We know that the self argument cannot be used in our function
             .filter(|s| s != "self")
             .map(|s| (s.clone(), SignalDeclaration::Input(s)))
             .collect();
@@ -138,5 +57,99 @@ impl SignalDeclarations {
             .values()
             .map(|s| CircomInstr::SignalDeclaration(s.clone()))
             .collect()
+    }
+}
+
+// This is very not production-like but works for the purpose of this simple showcase
+const SKIPP_CALLS: &[&str] = &["spill", "precondition_check"];
+
+fn handle_instruction(
+    signals: &mut SignalDeclarations,
+    instruction: &llvm_ir::Instruction,
+) -> Vec<CircomInstr> {
+    match instruction {
+        Instruction::Mul(mul) => handle_mul_instruction(signals, mul),
+        Instruction::Add(add) => handle_add_instruction(signals, add),
+        Instruction::ICmp(icmp) => handle_icmp_instruction(signals, icmp),
+        // Drop the debug info and overflowing checks
+        skipp if SKIPP_CALLS.iter().any(|c| skipp.to_string().contains(c)) => vec![],
+        other => unimplemented!("{other}"),
+    }
+}
+
+fn handle_mul_instruction(
+    signals: &mut SignalDeclarations,
+    mul: &llvm_ir::instruction::Mul,
+) -> Vec<CircomInstr> {
+    let dest = signals.reference(mul.dest.to_simple_string());
+    let i = ConstraintGenerationAssigment {
+        left: dest,
+        right: Expression::BinaryOperation(BinaryOperation {
+            left: CircomOperand::from(&mul.operand0),
+            op: BinaryOperationType::Mul,
+            right: CircomOperand::from(&mul.operand1),
+        }),
+    }
+    .into();
+    vec![i]
+}
+
+fn handle_add_instruction(
+    signals: &mut SignalDeclarations,
+    add: &llvm_ir::instruction::Add,
+) -> Vec<CircomInstr> {
+    let dest = signals.reference(add.dest.to_simple_string());
+    let i = ConstraintGenerationAssigment {
+        left: dest,
+        right: Expression::BinaryOperation(BinaryOperation {
+            left: CircomOperand::from(&add.operand0),
+            op: BinaryOperationType::Add,
+            right: CircomOperand::from(&add.operand1),
+        }),
+    }
+    .into();
+    vec![i]
+}
+
+fn handle_icmp_instruction(
+    signals: &mut SignalDeclarations,
+    icmp: &llvm_ir::instruction::ICmp,
+) -> Vec<CircomInstr> {
+    let name = icmp.dest.to_simple_string();
+    let dest = signals.reference(name.clone());
+    let component = ComponentInstatiation {
+        name: format! {"{}_is_equal", name},
+        component: "IsEqual".to_string(),
+    };
+    let x = ConstraintGenerationAssigment {
+        left: component.field("in[0]"),
+        right: Expression::Operand(CircomOperand::from(&icmp.operand0)),
+    };
+    let y = ConstraintGenerationAssigment {
+        left: component.field("in[1]"),
+        right: Expression::Operand(CircomOperand::from(&icmp.operand1)),
+    };
+    let res = ConstraintGenerationAssigment {
+        left: dest,
+        right: Expression::Operand(CircomOperand::Reference(component.field("out"))),
+    };
+    vec![CircomInstr::from(component), x.into(), y.into(), res.into()]
+}
+
+fn handle_return_terminator(
+    signals: &mut SignalDeclarations,
+    terminator: &Terminator,
+) -> Vec<CircomInstr> {
+    match terminator {
+        Terminator::Ret(Ret { return_operand, .. }) => {
+            let operand = return_operand.as_ref().unwrap();
+            let dest = signals.output_signal();
+            let i = ConstraintGenerationAssigment {
+                left: dest,
+                right: Expression::Operand(CircomOperand::from(operand)),
+            };
+            vec![i.into()]
+        }
+        t => unimplemented!("{t}"),
     }
 }

@@ -118,6 +118,7 @@ pub trait IRNameToSimpleString {
     fn to_simple_string(&self) -> String;
 }
 
+// This makes sure all the names are circom-legal.
 impl IRNameToSimpleString for Name {
     fn to_simple_string(&self) -> String {
         let s = self.to_string().replace("%", "").replace(".", "_");

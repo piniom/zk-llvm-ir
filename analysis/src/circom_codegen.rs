@@ -32,17 +32,36 @@ impl CircomModule {
 
 impl CircomCodeGenerator for CircomModule {
     fn to_circom(&self) -> String {
-        let mut circom_code = "pragma circom 2.2.2;\n".to_string();
+        let mut circom_code = self.pragma();
+        circom_code.push_str(&self.includes());
+        circom_code.push_str("\n\n");
+        circom_code.push_str(&self.templates());
+        circom_code.push_str(&self.main_component());
+        circom_code
+    }
+}
+
+impl CircomModule {
+    fn pragma(&self) -> String {
+        "pragma circom 2.2.2;\n".to_string()
+    }
+    fn includes(&self) -> String {
+        let mut circom_code = String::new();
         for i in self.component_includes.component_includes() {
             circom_code.push_str(&format!("{i}\n"));
         }
-        circom_code.push_str("\n\n");
+        circom_code
+    }
+    fn templates(&self) -> String {
+        let mut circom_code = String::new();
         for t in &self.templates {
             circom_code.push_str(&t.to_circom());
             circom_code.push_str("\n\n");
         }
-        circom_code.push_str(&format!("component main = {}();", self.main));
         circom_code
+    }
+    fn main_component(&self) -> String {
+        format!("component main = {}();", self.main)
     }
 }
 
