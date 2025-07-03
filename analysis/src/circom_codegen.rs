@@ -143,7 +143,7 @@ impl CircomCodeGenerator for BinaryOperation {
         let op_str = match self.op {
             BinaryOperationType::Mul => "*",
             BinaryOperationType::Rem => "%",
-            BinaryOperationType::Add => "+"
+            BinaryOperationType::Add => "+",
         };
         format!(
             "{} {} {}",
