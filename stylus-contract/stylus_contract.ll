@@ -2413,9 +2413,9 @@ start:
   %_0.i3 = mul i32 %number, %number
   store i32 %_0.i3, ptr %x.dbg.spill, align 4
   store i32 %_0.i3, ptr %self.dbg.spill.i5, align 4
-  store i32 11, ptr %rhs.dbg.spill.i4, align 4
-  call void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h66906bb427926aa1E"(i32 %_0.i3, i32 11) #15
-  %_0.i6 = add nuw i32 %_0.i3, 11
+  store i32 19, ptr %rhs.dbg.spill.i4, align 4
+  call void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h66906bb427926aa1E"(i32 %_0.i3, i32 19) #15
+  %_0.i6 = add nuw i32 %_0.i3, 19
   store i32 %_0.i6, ptr %self.dbg.spill.i, align 4
   store i32 10, ptr %rhs.dbg.spill.i, align 4
   %_0.i = mul i32 %_0.i6, 10
