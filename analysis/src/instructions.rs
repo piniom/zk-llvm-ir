@@ -74,19 +74,19 @@ pub enum Reference {
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
-pub enum Operand {
+pub enum CircomOperand {
     Reference(Reference),
     Constant(i64),
 }
 
-impl From<&llvm_ir::Operand> for Operand {
+impl From<&llvm_ir::Operand> for CircomOperand {
     fn from(value: &llvm_ir::Operand) -> Self {
         match value {
             llvm_ir::Operand::LocalOperand { name, .. } => {
-                Operand::Reference(Reference::SignalRef(name.to_simple_string()))
+                CircomOperand::Reference(Reference::SignalRef(name.to_simple_string()))
             }
             llvm_ir::Operand::ConstantOperand(c) => match c.as_ref() {
-                Constant::Int { value, .. } => Operand::Constant(*value as i64),
+                Constant::Int { value, .. } => CircomOperand::Constant(*value as i64),
                 _ => unimplemented!(),
             },
             _ => unimplemented!(),
@@ -96,20 +96,21 @@ impl From<&llvm_ir::Operand> for Operand {
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Expression {
-    Operand(Operand),
+    Operand(CircomOperand),
     BinaryOperation(BinaryOperation),
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct BinaryOperation {
-    pub left: Operand,
+    pub left: CircomOperand,
     pub op: BinaryOperationType,
-    pub right: Operand,
+    pub right: CircomOperand,
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub enum BinaryOperationType {
     Mul,
+    Add,
     Rem,
 }
 

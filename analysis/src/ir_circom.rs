@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use llvm_ir::{Function, Instruction, Terminator, function::Parameter, terminator::Ret};
+use llvm_ir::{function::Parameter, terminator::Ret, ConstantRef, Function, Instruction, Operand, Terminator};
 
 use crate::instructions::*;
 
@@ -12,14 +12,45 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
 
     for instruction in &block.instrs {
         match instruction {
+            Instruction::Call(call) => {
+                let function = call.function.clone().expect_right("");
+                match function {
+                    Operand::ConstantOperand(global_ref) => {
+                        match global_ref.as_ref() {
+                            llvm_ir::Constant::GlobalReference { name , .. } => {
+                                match name.to_string().as_str() {
+                                    "%llvm.uadd.with.overflow.i32" => println!("Hurra!"),
+                                    other if SKIPP_CALLS.iter().any(|c| other.to_string().contains(c)) => (),
+                                    n => unimplemented!("{n}")
+                                }
+                            }
+                            c => unimplemented!("{c}")
+                        }
+                    }
+                    o => unimplemented!("{o}")
+                }
+            }
             Instruction::Mul(mul) => {
                 let dest = signals.reference(mul.dest.to_simple_string());
                 let i = ConstraintGenerationAssigment {
                     left: dest,
                     right: Expression::BinaryOperation(BinaryOperation {
-                        left: Operand::from(&mul.operand0),
+                        left: CircomOperand::from(&mul.operand0),
                         op: BinaryOperationType::Mul,
-                        right: Operand::from(&mul.operand1),
+                        right: CircomOperand::from(&mul.operand1),
+                    }),
+                }
+                .into();
+                circcom_instrs.push(i)
+            }
+            Instruction::Add(add) => {
+                let dest = signals.reference(add.dest.to_simple_string());
+                let i = ConstraintGenerationAssigment {
+                    left: dest,
+                    right: Expression::BinaryOperation(BinaryOperation {
+                        left: CircomOperand::from(&add.operand0),
+                        op: BinaryOperationType::Add,
+                        right: CircomOperand::from(&add.operand1),
                     }),
                 }
                 .into();
@@ -30,9 +61,9 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
                 let i = ConstraintGenerationAssigment {
                     left: dest,
                     right: Expression::BinaryOperation(BinaryOperation {
-                        left: Operand::from(&urem.operand0),
+                        left: CircomOperand::from(&urem.operand0),
                         op: BinaryOperationType::Rem,
-                        right: Operand::from(&urem.operand1),
+                        right: CircomOperand::from(&urem.operand1),
                     }),
                 }
                 .into();
@@ -46,16 +77,16 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
                     component: "IsEqual".to_string(),
                 };
                 let x = ConstraintGenerationAssigment {
-                    left: component.field("x"),
-                    right: Expression::Operand(Operand::from(&icmp.operand0)),
+                    left: component.field("in[0]"),
+                    right: Expression::Operand(CircomOperand::from(&icmp.operand0)),
                 };
                 let y = ConstraintGenerationAssigment {
-                    left: component.field("y"),
-                    right: Expression::Operand(Operand::from(&icmp.operand1)),
+                    left: component.field("in[1]"),
+                    right: Expression::Operand(CircomOperand::from(&icmp.operand1)),
                 };
                 let res = ConstraintGenerationAssigment {
                     left: dest,
-                    right: Expression::Operand(Operand::Reference(component.field("out"))),
+                    right: Expression::Operand(CircomOperand::Reference(component.field("out"))),
                 };
                 circcom_instrs.append(&mut vec![
                     CircomInstr::from(component),
@@ -64,7 +95,7 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
                     res.into(),
                 ]);
             }
-            other if other.to_string().contains("spill") => (), // Drop the debug info - ideally the IR should be stripped beforehand
+            other if SKIPP_CALLS.iter().any(|c| other.to_string().contains(c)) => (), // Drop the debug info - ideally the IR should be stripped beforehand
             oth => unimplemented!("{oth}"),
         };
     }
@@ -75,7 +106,7 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
             let dest = signals.output_signal();
             let i = ConstraintGenerationAssigment {
                 left: dest,
-                right: Expression::Operand(Operand::from(operand)),
+                right: Expression::Operand(CircomOperand::from(operand)),
             };
             circcom_instrs.push(i.into());
         }
@@ -90,6 +121,8 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
             .collect(),
     }
 }
+
+const SKIPP_CALLS: &[&str] = &["spill", "precondition_check"];
 
 struct SignalDeclarations {
     declared: HashMap<String, SignalDeclaration>,

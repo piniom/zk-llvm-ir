@@ -58,7 +58,7 @@ fn main() -> () {
 }
 
 fn known_components() -> HashMap<String, String> {
-    [("IsEqual", "circomlib/circuits/comparators.circom")]
+    [("IsEqual", "./circomlib/comparators.circom")]
         .into_iter()
         .map(|(n, i)| (n.to_string(), i.to_string()))
         .collect()

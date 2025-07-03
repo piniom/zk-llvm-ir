@@ -17,6 +17,7 @@ target triple = "arm64-apple-macosx11.0.0"
 @alloc_4be601d50b4e1e0b8de2c5c15d394d1b = private unnamed_addr constant [105 x i8] c"/Users/szymon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-sol-types-0.8.20/src/types/ty.rs", align 1
 @alloc_13b013f2f7fee66d8922b9d3594b8f10 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @alloc_4be601d50b4e1e0b8de2c5c15d394d1b, [16 x i8] c"i\00\00\00\00\00\00\00\1D\01\00\00\0D\00\00\00" }>, align 8
 @alloc_cde9f5c1f4cf2df8acc897a6cd9a712b = private unnamed_addr constant [264 x i8] c"(uint32)\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", align 8
+@alloc_a6a0cc8156fe455996de64a9d05b1dfe = private unnamed_addr constant [184 x i8] c"unsafe precondition(s) violated: u32::unchecked_add cannot overflow\0A\0AThis indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.", align 1
 @alloc_fad0cd83b7d1858a846a172eb260e593 = private unnamed_addr constant [42 x i8] c"is_aligned_to: align is not a power-of-two", align 1
 @alloc_e92e94d0ff530782b571cfd99ec66aef = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @alloc_fad0cd83b7d1858a846a172eb260e593, [8 x i8] c"*\00\00\00\00\00\00\00" }>, align 8
 @alloc_22bf9a1f84384eeb28ba204fb4528bd0 = private unnamed_addr constant [111 x i8] c"/Users/szymon/.rustup/toolchains/1.87.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/ub_checks.rs", align 1
@@ -1044,6 +1045,26 @@ start:
   store i32 %3, ptr %1, align 4
   %_0 = load i32, ptr %1, align 4
   ret i32 %_0
+}
+
+; Function Attrs: inlinehint nounwind uwtable
+define internal void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h66906bb427926aa1E"(i32 %lhs, i32 %rhs) unnamed_addr #3 {
+start:
+  %rhs.dbg.spill = alloca [4 x i8], align 4
+  %lhs.dbg.spill = alloca [4 x i8], align 4
+  store i32 %lhs, ptr %lhs.dbg.spill, align 4
+  store i32 %rhs, ptr %rhs.dbg.spill, align 4
+  %0 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %lhs, i32 %rhs)
+  %_5.0 = extractvalue { i32, i1 } %0, 0
+  %_5.1 = extractvalue { i32, i1 } %0, 1
+  br i1 %_5.1, label %bb1, label %bb2
+
+bb2:                                              ; preds = %start
+  ret void
+
+bb1:                                              ; preds = %start
+  call void @_ZN4core9panicking14panic_nounwind17hb89b2a5de4429251E(ptr align 1 @alloc_a6a0cc8156fe455996de64a9d05b1dfe, i64 184) #14
+  unreachable
 }
 
 ; Function Attrs: uwtable
@@ -2379,25 +2400,22 @@ start:
   %self.dbg.spill.i2 = alloca [4 x i8], align 4
   %rhs.dbg.spill.i = alloca [4 x i8], align 4
   %self.dbg.spill.i = alloca [4 x i8], align 4
-  %reminder_2.dbg.spill = alloca [4 x i8], align 4
-  %reminder_1.dbg.spill = alloca [4 x i8], align 4
+  %y.dbg.spill = alloca [4 x i8], align 4
   %x.dbg.spill = alloca [4 x i8], align 4
   %number.dbg.spill = alloca [4 x i8], align 4
   %self.dbg.spill = alloca [8 x i8], align 8
   store ptr %self, ptr %self.dbg.spill, align 8
   store i32 %number, ptr %number.dbg.spill, align 4
-  store i32 %number, ptr %self.dbg.spill.i2, align 4
-  store i32 %number, ptr %rhs.dbg.spill.i1, align 4
-  %_0.i3 = mul i32 %number, %number
-  store i32 %_0.i3, ptr %x.dbg.spill, align 4
-  %reminder_1 = urem i32 %_0.i3, 541
-  store i32 %reminder_1, ptr %reminder_1.dbg.spill, align 4
-  store i32 %reminder_1, ptr %self.dbg.spill.i, align 4
-  store i32 7, ptr %rhs.dbg.spill.i, align 4
-  %_0.i = mul i32 %reminder_1, 7
-  %reminder_2 = urem i32 %_0.i, 11
-  store i32 %reminder_2, ptr %reminder_2.dbg.spill, align 4
-  %_0 = icmp eq i32 %reminder_2, 5
+  store i32 %number, ptr %self.dbg.spill.i, align 4
+  store i32 %number, ptr %rhs.dbg.spill.i, align 4
+  %_0.i = mul i32 %number, %number
+  store i32 %_0.i, ptr %x.dbg.spill, align 4
+  store i32 %_0.i, ptr %self.dbg.spill.i2, align 4
+  store i32 11, ptr %rhs.dbg.spill.i1, align 4
+  call void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h66906bb427926aa1E"(i32 %_0.i, i32 11) #15
+  %_0.i3 = add nuw i32 %_0.i, 11
+  store i32 %_0.i3, ptr %y.dbg.spill, align 4
+  %_0 = icmp eq i32 %_0.i3, 100
   ret i1 %_0
 }
 
@@ -2520,6 +2538,12 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #9
+
+; Function Attrs: cold noinline noreturn nounwind uwtable
+declare void @_ZN4core9panicking14panic_nounwind17hb89b2a5de4429251E(ptr align 1, i64) unnamed_addr #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #9
 
 ; Function Attrs: cold noinline noreturn uwtable
@@ -2527,9 +2551,6 @@ declare void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h8a13aa9
 
 ; Function Attrs: cold minsize noinline noreturn nounwind optsize uwtable
 declare void @_ZN4core9panicking19panic_cannot_unwind17h620b5c02cb97e1ccE() unnamed_addr #7
-
-; Function Attrs: cold noinline noreturn nounwind uwtable
-declare void @_ZN4core9panicking14panic_nounwind17hb89b2a5de4429251E(ptr align 1, i64) unnamed_addr #10
 
 ; Function Attrs: cold noinline noreturn uwtable
 declare void @_ZN4core9panicking9panic_fmt17h529fda7ea817ba4fE(ptr align 8, ptr align 8) unnamed_addr #6

@@ -32,7 +32,7 @@ impl CircomModule {
 
 impl CircomCodeGenerator for CircomModule {
     fn to_circom(&self) -> String {
-        let mut circom_code = String::new();
+        let mut circom_code = "pragma circom 2.2.2;\n".to_string();
         for i in self.component_includes.component_includes() {
             circom_code.push_str(&format!("{i}\n"));
         }
@@ -143,6 +143,7 @@ impl CircomCodeGenerator for BinaryOperation {
         let op_str = match self.op {
             BinaryOperationType::Mul => "*",
             BinaryOperationType::Rem => "%",
+            BinaryOperationType::Add => "+"
         };
         format!(
             "{} {} {}",
@@ -153,11 +154,11 @@ impl CircomCodeGenerator for BinaryOperation {
     }
 }
 
-impl CircomCodeGenerator for Operand {
+impl CircomCodeGenerator for CircomOperand {
     fn to_circom(&self) -> String {
         match self {
-            Operand::Reference(signal_reference) => signal_reference.to_circom(),
-            Operand::Constant(c) => format!("{c}"),
+            CircomOperand::Reference(signal_reference) => signal_reference.to_circom(),
+            CircomOperand::Constant(c) => format!("{c}"),
         }
     }
 }
