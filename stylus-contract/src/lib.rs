@@ -16,8 +16,10 @@ sol_storage! {
 #[public]
 impl SimpleContract {
     pub fn mock_check(&self, number: u32) -> bool {
-        let x = number.wrapping_mul(number); // using `wrapping_mul` simplifies the IR greatly
-        let reminder =  x % 7;
-        reminder == 5
+        let x = number.wrapping_mul(number); // using `wrapping_mul` simplifies the IR 
+        let reminder_1 =  x % 541;
+        let reminder_2 = (reminder_1.wrapping_mul(7)) % 11;
+
+        reminder_2 == 5
     }
 }

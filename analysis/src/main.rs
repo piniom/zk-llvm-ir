@@ -1,8 +1,11 @@
 use clap::Parser;
 use llvm_ir::Module;
-use std::path::Path;
+use std::{collections::HashMap, fs, path::Path};
 
-use crate::{circom_codegen::CircomCodeGenerator, ir_circom::ir_to_circom};
+use crate::{
+    circom_codegen::{CircomCodeGenerator, CircomModule},
+    ir_circom::ir_to_circom,
+};
 
 pub mod circom_codegen;
 pub mod instructions;
@@ -14,6 +17,8 @@ struct Args {
     ir: String,
     #[arg(short, long)]
     function: String,
+    #[arg(short, long, value_name = "FILE")]
+    output: Option<String>,
 }
 
 fn main() -> () {
@@ -38,8 +43,23 @@ fn main() -> () {
         );
     }
 
-    println!(
-        "{}",
-        ir_to_circom(args.function.clone(), functions[0]).to_circom()
+    let module = CircomModule::new(
+        vec![ir_to_circom(args.function.clone(), functions[0])],
+        known_components(),
+        args.function,
     );
+
+    let circom = module.to_circom();
+
+    match args.output {
+        None => println!("{circom}"),
+        Some(output) => fs::write(output, circom).unwrap(),
+    }
+}
+
+fn known_components() -> HashMap<String, String> {
+    [("IsEqual", "circomlib/circuits/comparators.circom")]
+        .into_iter()
+        .map(|(n, i)| (n.to_string(), i.to_string()))
+        .collect()
 }

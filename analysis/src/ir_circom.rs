@@ -43,7 +43,7 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
                 let dest = signals.reference(name.clone());
                 let component = ComponentInstatiation {
                     name: format! {"{}_is_equal", name},
-                    component: "IsEqual()".to_string(),
+                    component: "IsEqual".to_string(),
                 };
                 let x = ConstraintGenerationAssigment {
                     left: component.field("x"),
@@ -65,7 +65,7 @@ pub fn ir_to_circom(name: String, function: &Function) -> Template {
                 ]);
             }
             other if other.to_string().contains("spill") => (), // Drop the debug info - ideally the IR should be stripped beforehand
-            _ => unimplemented!(),
+            oth => unimplemented!("{oth}"),
         };
     }
 

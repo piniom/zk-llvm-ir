@@ -1,16 +1,88 @@
+use std::collections::{HashMap, HashSet};
+
 use super::instructions::*;
+
 pub trait CircomCodeGenerator {
     fn to_circom(&self) -> String;
 }
 
+pub struct CircomModule {
+    templates: Vec<Template>,
+    component_includes: ComponentIncludes,
+    main: String,
+}
+
+impl CircomModule {
+    pub fn new(
+        templates: Vec<Template>,
+        known_components: HashMap<String, String>,
+        main: String,
+    ) -> Self {
+        let mut component_includes = ComponentIncludes::new(known_components);
+        for t in &templates {
+            component_includes.extract_component_usages(&t.instructions);
+        }
+        Self {
+            templates,
+            component_includes,
+            main,
+        }
+    }
+}
+
+impl CircomCodeGenerator for CircomModule {
+    fn to_circom(&self) -> String {
+        let mut circom_code = String::new();
+        for i in self.component_includes.component_includes() {
+            circom_code.push_str(&format!("{i}\n"));
+        }
+        circom_code.push_str("\n\n");
+        for t in &self.templates {
+            circom_code.push_str(&t.to_circom());
+            circom_code.push_str("\n\n");
+        }
+        circom_code.push_str(&format!("component main = {}();", self.main));
+        circom_code
+    }
+}
+
 impl CircomCodeGenerator for Template {
     fn to_circom(&self) -> String {
-        let mut circom_code = format!("template {} {{\n", to_pascal_case(&self.name));
+        let mut circom_code = format!("template {} {{\n", self.name);
         for instruction in &self.instructions {
             circom_code.push_str(&format!("  {}\n", &instruction.to_circom()));
         }
         circom_code.push_str("}\n");
+
         circom_code
+    }
+}
+
+struct ComponentIncludes {
+    known: HashMap<String, String>,
+    used: HashSet<String>,
+}
+
+impl ComponentIncludes {
+    pub fn new(known: HashMap<String, String>) -> Self {
+        Self {
+            known,
+            used: HashSet::new(),
+        }
+    }
+    pub fn extract_component_usages(&mut self, instructions: &[CircomInstr]) {
+        for i in instructions {
+            if let CircomInstr::ComponentInstatiation(inst) = i {
+                self.used.insert(inst.component.clone());
+            }
+        }
+    }
+    pub fn component_includes(&self) -> Vec<String> {
+        self.used
+            .iter()
+            .map(|u| self.known.get(u).map(|u| format!("include \"{u}\";")))
+            .flatten()
+            .collect()
     }
 }
 
@@ -28,7 +100,7 @@ impl CircomCodeGenerator for CircomInstr {
 
 impl CircomCodeGenerator for ComponentInstatiation {
     fn to_circom(&self) -> String {
-        format!("component {} = {};", self.name, self.component)
+        format!("component {} = {}();", self.name, self.component)
     }
 }
 
@@ -88,16 +160,4 @@ impl CircomCodeGenerator for Operand {
             Operand::Constant(c) => format!("{c}"),
         }
     }
-}
-
-fn to_pascal_case(s: &str) -> String {
-    s.split('_')
-        .map(|word| {
-            let mut chars = word.chars();
-            match chars.next() {
-                None => String::new(),
-                Some(first_char) => first_char.to_uppercase().collect::<String>() + chars.as_str(),
-            }
-        })
-        .collect::<String>()
 }
