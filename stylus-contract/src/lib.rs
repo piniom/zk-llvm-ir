@@ -6,7 +6,7 @@ extern crate alloc;
 
 use alloc::vec::Vec;
 
-use stylus_sdk::{alloy_primitives::U32, prelude::*};
+use stylus_sdk::prelude::*;
 
 sol_storage! {
     #[entrypoint]
@@ -15,8 +15,9 @@ sol_storage! {
 
 #[public]
 impl SimpleContract {
-    pub fn divisible_by_7(&self, number: U32) -> bool {
-        number % U32::from(7) == U32::from(0)
+    pub fn mock_check(&self, number: u32) -> bool {
+        let x = number.wrapping_mul(number); // using `wrapping_mul` simplifies the IR greatly
+        let reminder =  x % 7;
+        reminder == 5
     }
 }
-
