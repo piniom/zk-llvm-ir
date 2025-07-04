@@ -2,7 +2,7 @@
 Llvm-ir to zk-circuit converter proof of concept. 
 
 ## Repository structure
-The repository consists of several folders, the structure of which should be a good explanations of what the project intends to do.
+The repository consists of several folders, the structure of which should provide a good explanation of what the project intends to do.
 
 ### stylus-contract
 A simple contract written using the [cargo-stylus](https://github.com/OffchainLabs/cargo-stylus) ecosystem.
@@ -27,7 +27,7 @@ This is the [circom](https://docs.circom.io/) project that is the product of the
 
 ## Running the modules
 
-Running the project is a multi-step process. Most of the steps are saved in the repo, and running first steps may be skipped.
+Running the project is a multi-step process. Most of the steps are saved in the repo, and running the first steps may be skipped if wished so.
 
 ### Dependencies
 
@@ -59,10 +59,84 @@ This will take the previously dumped IR, find a mock_check function, and generat
 
 ### Compiling the circuit
 
-Execute the following from the root directory
+Execute the following from the root directory:
 ```bash
 cd circuit
-circom mock_check.circom --r1cs --wasm --sym --c
+circom mock_check.circom --r1cs --wasm --sym
+```
+
+### Generating the witness
+
+If you want to read more about what is the *witness* I refer you to [here](https://docs.circom.io/getting-started/computing-the-witness/#what-is-a-witness).
+
+While in the `circuit` directory execute the following:
+```bash
+cd mock_check_js
+node generate_witness.js mock_check.wasm ../input.json witness.wtns 
+```
+
+### Proving the circuit
+
+This section closely follows the steps described [here](https://docs.circom.io/getting-started/proving-circuits/).
+
+Powers of tau (assuming `circuit` directory):
+
+```bash
+snarkjs powersoftau new bn128 12 pot12_0000.ptau -v
+snarkjs powersoftau contribute pot12_0000.ptau pot12_0001.ptau --name="first" -v
+```
+
+Circuit-specific part:
+
+```bash
+snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v
+snarkjs groth16 setup mock_check.r1cs pot12_final.ptau mock_check_0000.zkey
+snarkjs zkey contribute mock_check_0000.zkey mock_check_0001.zkey --name="somename" -v
+snarkjs zkey export verificationkey mock_check_0001.zkey verification_key.json
+```
+
+Generating a proof
+
+```bash
+snarkjs groth16 prove mock_check_0001.zkey mock_check_js/witness.wtns proof.json public.json
+```
+
+This will produce a `public.json` file which should look like this:
+
+```json
+[
+ "1" // True
+]
+```
+
+It means that our original `mock_hash` function would indeed have produced `true` - meaning that we know a number satisfying the constraints imposed by the logic (simple in our case, but could be a pre-image of a cryptographically secure hash function). With the generated circuit we are able to prove that .
+
+
+### Smart contract verification
+
+Generating the Solidity verifier:
+
+```bash
+snarkjs zkey export solidityverifier mock_check_0001.zkey verifier.sol
+```
+This produces a solidity contract `verifier.sol` that can be deployed and tested.
+
+Generate the calldata using this function:
+
+```bash
+snarkjs generatecall
+```
+
+## Deployed contract
+
+The example contract (`verifier.sol`), produced with the above steps, is deployed to testnet and can be viewed here:
+
+https://sepolia.etherscan.io/address/0x4c37bed9ce2d4318452bd996ee6caa6065dd7c44#code
+
+You can check the behaviour of the contract in [Remix](https://remix-project.org/?lang=en) or run the following command (make sure to have all the required API keys):
+
+```bash
+cast call 0x4c37bed9ce2d4318452bd996ee6caa6065dd7c44 $(cat calldata.txt) --rpc-url https://eth-sepolia.blastapi.io/your-key # or different rpc
 ```
 
 
