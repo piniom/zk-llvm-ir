@@ -3,11 +3,11 @@ include "./circomlib/comparators.circom";
 
 
 template mock_check {
+  signal x_0_i3;
+  signal x_0_i;
   signal x_0_i6;
   signal input number;
   signal x_0;
-  signal x_0_i3;
-  signal x_0_i;
   signal output out;
   x_0_i3 <== number * number;
   x_0_i6 <== x_0_i3 + 19;
