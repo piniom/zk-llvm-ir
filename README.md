@@ -101,11 +101,11 @@ Generating a proof
 snarkjs groth16 prove mock_check_0001.zkey mock_check_js/witness.wtns proof.json public.json
 ```
 
-This will produce a `public.json` file which should look like this:
+This will produce a `public.json` file which should look like this (`1` stands for `true`):
 
 ```json
 [
- "1" // True
+ "1"
 ]
 ```
 
@@ -120,6 +120,11 @@ Generating the Solidity verifier:
 snarkjs zkey export solidityverifier mock_check_0001.zkey verifier.sol
 ```
 This produces a solidity contract `verifier.sol` that can be deployed and tested.
+The contract has one method:
+```
+function verifyProof(uint[2] calldata _pA, uint[2][2] calldata _pB, uint[2] calldata _pC, uint[1] calldata _pubSignals) public view returns (bool) { .. }
+```
+This method takes the encoded zk-proof and outputs a boolean indicating its correctness.
 
 Generate the calldata using this function:
 
@@ -133,7 +138,7 @@ The example contract (`verifier.sol`), produced with the above steps, is deploye
 
 https://sepolia.etherscan.io/address/0x4c37bed9ce2d4318452bd996ee6caa6065dd7c44#code
 
-You can check the behaviour of the contract in [Remix](https://remix-project.org/?lang=en) or run the following command (make sure to have all the required API keys):
+You can check the behaviour of the contract locally or in [Remix](https://remix-project.org/?lang=en) or run the following command (make sure to have all the required API keys):
 
 ```bash
 cast call 0x4c37bed9ce2d4318452bd996ee6caa6065dd7c44 $(cat calldata.txt) --rpc-url https://eth-sepolia.blastapi.io/your-key # or different rpc
