@@ -27,4 +27,17 @@ impl SimpleContract {
 
         y == 1000
     }
+    pub fn advanced_check(&self, secret: u32, flag: bool) -> bool {
+        let mut result = secret;
+
+        if flag {
+            result = result.wrapping_mul(3);
+        } else {
+            result = result.wrapping_add(100);
+        }
+
+        // Maybe add more conditions or a small loop here
+
+        result == 102
+    }
 }

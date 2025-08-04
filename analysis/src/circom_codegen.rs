@@ -152,7 +152,8 @@ impl CircomCodeGenerator for Expression {
     fn to_circom(&self) -> String {
         match self {
             Expression::Operand(op) => op.to_circom(),
-            Expression::BinaryOperation(op) => op.to_circom(),
+            Expression::BinaryOperation(bin_op) => bin_op.to_circom(),
+            Expression::Conditional(cond) => cond.to_circom()
         }
     }
 }
@@ -179,5 +180,18 @@ impl CircomCodeGenerator for CircomOperand {
             CircomOperand::Reference(signal_reference) => signal_reference.to_circom(),
             CircomOperand::Constant(c) => format!("{c}"),
         }
+    }
+}
+
+impl CircomCodeGenerator for ConditionalValue {
+    fn to_circom(&self) -> String {
+        
+        format!(
+            "({} - {}) * {} + {}",
+            self.v_if_true.to_circom(),
+            self.v_if_false.to_circom(),
+            self.cond.to_circom(),
+            self.v_if_false.to_circom()
+        )
     }
 }

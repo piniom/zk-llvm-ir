@@ -1,4 +1,4 @@
-use llvm_ir::{Constant, Name};
+use llvm_ir::{Constant, Name, Operand};
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct Template {
@@ -73,6 +73,16 @@ pub enum Reference {
     ComponentField { component: String, field: String },
 }
 
+impl Reference {
+    pub fn intermediate_optional(&self) -> String {
+        match self {
+            Self::SignalRef(s) =>  format!("{s}_optional"),
+            _ => unimplemented!()
+        }
+       
+    }
+}
+
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub enum CircomOperand {
     Reference(Reference),
@@ -98,6 +108,7 @@ impl From<&llvm_ir::Operand> for CircomOperand {
 pub enum Expression {
     Operand(CircomOperand),
     BinaryOperation(BinaryOperation),
+    Conditional(ConditionalValue)
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
@@ -105,6 +116,13 @@ pub struct BinaryOperation {
     pub left: CircomOperand,
     pub op: BinaryOperationType,
     pub right: CircomOperand,
+}
+
+#[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
+pub struct ConditionalValue {
+    pub cond: CircomOperand,
+    pub v_if_true: CircomOperand,
+    pub v_if_false: CircomOperand
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
@@ -122,10 +140,21 @@ pub trait IRNameToSimpleString {
 impl IRNameToSimpleString for Name {
     fn to_simple_string(&self) -> String {
         let s = self.to_string().replace("%", "").replace(".", "_");
-        if s.starts_with("_") {
+        let first = s.chars().nth(0).unwrap();
+        if s.starts_with("_") || first.is_numeric() {
             format!("x{s}")
         } else {
             s
+        }
+    }
+}
+
+impl IRNameToSimpleString for Operand {
+    fn to_simple_string(&self) -> String {
+        match self {
+            Operand::LocalOperand { name, .. } => name.to_simple_string(),
+            Operand::ConstantOperand(..) => unimplemented!(),
+            _ => unimplemented!()
         }
     }
 }

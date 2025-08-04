@@ -1,0 +1,45 @@
+Follow-up Task: Adding Control Flow Complexity
+
+  Good job on the initial implementation! You've successfully created a basic ZK proof system that traces through simple arithmetic operations, and somewhat explained how it works on the call. Now let's make things more interesting.
+
+  Why this follow-up? Right now your mock_check function only has linear arithmetic operations - it's basically just a sequence of multiply and add. In real-world
+  smart contracts, we need to handle conditional logic, loops, and branching paths. This is where ZK proofs get really interesting because you need to prove that a
+  certain execution path was taken without revealing which path it was!
+
+  Your new tasks:
+
+  1. Enhance the Rust contract to include more complex control flow:
+    - Add at least one if/else block that affects the computation
+    - Maybe add a simple loop (but keep it bounded!)
+    - Consider adding multiple return paths
+
+  Here's a starter idea:
+  pub fn advanced_check(&self, secret: u32, flag: bool) -> bool {
+      let mut result = secret;
+
+      if flag {
+          result = result.wrapping_mul(3);
+      } else {
+          result = result.wrapping_add(100);
+      }
+
+      // Maybe add more conditions or a small loop here
+
+      result == SOME_TARGET_VALUE
+  }
+  2. Update your LLVM IR Analysis to handle:
+    - Branch instructions (br in LLVM IR)
+    - PHI nodes (these appear when control flow merges)
+    - Conditional operations
+
+  This means your circuit generation needs to encode both possible execution paths and include constraints that ensure only one path is "active" based on the
+  conditions.
+  3. Enhance your Circom generation to:
+    - Generate selector signals for different execution paths
+    - Create constraints that enforce the correct path was taken
+    - Handle the increased complexity in the witness generation
+
+  Bonus points if you can add a simple example that shows how your system handles a function with multiple valid inputs that take different paths but produce the
+  same output - this really showcases the "zero-knowledge" aspect!
+
+  Keep the same GitHub repo structure but update your README to explain how the control flow is handled in the ZK circuit.
