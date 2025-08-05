@@ -10,7 +10,7 @@ use crate::{
     instructions::*,
     ir_circom::{
         control_flow::{Branch, BranchNode, compute_cfg},
-        instruction_handler::{handle_alloca, handle_return_terminator, handle_store},
+        instruction_handler::{handle_alloca, handle_return_terminator},
     },
 };
 use instruction_handler::handle_instruction;
@@ -92,9 +92,9 @@ impl Structure {
             let i = ConstraintGenerationAssigment {
                 left: false_condition_operand.clone(),
                 right: Expression::BinaryOperation(BinaryOperation {
-                    left: condition_operand,
-                    op: BinaryOperationType::Mul,
-                    right: CircomOperand::Constant(-1),
+                    left: CircomOperand::Constant(1),
+                    op: BinaryOperationType::Sub,
+                    right: condition_operand,
                 }),
             };
             instrs.push(i.into());

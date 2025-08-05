@@ -1,4 +1,4 @@
-use std::collections::{HashMap, VecDeque};
+use std::collections::{HashMap, HashSet, VecDeque};
 
 use llvm_ir::{BasicBlock, Name, Terminator};
 
@@ -211,12 +211,14 @@ fn branch_conditions(
             .into_iter()
             .flatten()
             .collect(),
-            merge if merge.iter().all(ParentInfo::is_merge) => branch_gca(
+            merge if merge.iter().all(ParentInfo::is_merge) => {
+                let try_merge = branch_gca(
                 &merge
                     .into_iter()
                     .map(|pi| conditions.get(pi.name()).unwrap())
-                    .collect::<Vec<_>>(),
-            ),
+                    .collect::<Vec<_>>());
+                try_merge
+            },
             a => panic!("Weird CFG structure: {a:?}"),
         };
         conditions.insert(block.clone(), branch);
@@ -239,12 +241,12 @@ fn branch_gca(parents: &[&Vec<BranchNode>]) -> Vec<BranchNode> {
 }
 
 fn branch_gca_2(a: &[BranchNode], b: &[BranchNode]) -> Vec<BranchNode> {
+    let b: HashSet<_> = b.into_iter().collect();
+    let a: HashSet<_> = a.into_iter().collect();
     let mut result = vec![];
-    for (x, y) in a.iter().zip(b) {
-        if x == y {
+    for &x in a.iter() {
+        if b.contains(x) {
             result.push(x.clone());
-        } else {
-            break;
         }
     }
     result

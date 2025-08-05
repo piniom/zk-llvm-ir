@@ -19,6 +19,7 @@ pub fn handle_instruction(
         Instruction::Alloca(alloca) => handle_alloca_instruction(structure, alloca),
         Instruction::Store(store) => handle_store_instruction(structure, condition, store),
         Instruction::Load(load) => handle_load_instruction(structure, load),
+        Instruction::Trunc(trunc) => handle_trunc_instruction(structure, trunc),
         other => unimplemented!("{other}"),
     }
 }
@@ -50,6 +51,21 @@ fn handle_zext_instruction(
     let i = ConstraintGenerationAssigment {
         left: dest,
         right: Expression::Operand(CircomOperand::from(&zext.operand)),
+    }
+    .into();
+    vec![i]
+}
+
+fn handle_trunc_instruction(
+    structure: &mut Structure,
+    trunc: &llvm_ir::instruction::Trunc,
+) -> Vec<CircomInstr> {
+    let dest = structure
+        .signals
+        .get_reference(trunc.dest.to_simple_string());
+    let i = ConstraintGenerationAssigment {
+        left: dest,
+        right: Expression::Operand(CircomOperand::from(&trunc.operand)),
     }
     .into();
     vec![i]

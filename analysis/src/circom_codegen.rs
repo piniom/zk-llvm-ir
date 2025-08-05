@@ -164,6 +164,7 @@ impl CircomCodeGenerator for BinaryOperation {
             BinaryOperationType::Mul => "*",
             BinaryOperationType::Rem => "%",
             BinaryOperationType::Add => "+",
+            BinaryOperationType::Sub => "-"
         };
         format!(
             "{} {} {}",

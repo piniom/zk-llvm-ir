@@ -4090,12 +4090,9 @@ start:
   br i1 %flag, label %bb1, label %bb3
 
 bb3:                                              ; preds = %start
-  %_8 = load i32, ptr %result, align 4
-  store i32 %_8, ptr %self.dbg.spill.i, align 4
-  store i32 100, ptr %rhs.dbg.spill.i, align 4
-  %_0.i = add i32 %_8, 100
-  store i32 %_0.i, ptr %result, align 4
-  br label %bb5
+  %_7 = load i32, ptr %result, align 4
+  %1 = icmp eq i32 %_7, 900
+  br i1 %1, label %bb4, label %bb5
 
 bb1:                                              ; preds = %start
   %_6 = load i32, ptr %result, align 4
@@ -4103,11 +4100,31 @@ bb1:                                              ; preds = %start
   store i32 3, ptr %rhs.dbg.spill.i1, align 4
   %_0.i3 = mul i32 %_6, 3
   store i32 %_0.i3, ptr %result, align 4
-  br label %bb5
+  br label %bb7
 
-bb5:                                              ; preds = %bb1, %bb3
+bb4:                                              ; preds = %bb3
+  store i32 102, ptr %result, align 4
+  br label %bb7
+
+bb5:                                              ; preds = %bb3
   %_9 = load i32, ptr %result, align 4
-  %_0 = icmp eq i32 %_9, 102
+  store i32 %_9, ptr %self.dbg.spill.i, align 4
+  store i32 100, ptr %rhs.dbg.spill.i, align 4
+  %_0.i = add i32 %_9, 100
+  store i32 %_0.i, ptr %result, align 4
+  br label %bb7
+
+bb7:                                              ; preds = %bb5, %bb4, %bb1
+  %2 = icmp eq i32 %secret, 800
+  br i1 %2, label %bb8, label %bb9
+
+bb8:                                              ; preds = %bb7
+  store i32 100, ptr %result, align 4
+  br label %bb9
+
+bb9:                                              ; preds = %bb8, %bb7
+  %_10 = load i32, ptr %result, align 4
+  %_0 = icmp eq i32 %_10, 102
   ret i1 %_0
 }
 

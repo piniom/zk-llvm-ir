@@ -129,6 +129,7 @@ pub struct ConditionalValue {
 pub enum BinaryOperationType {
     Mul,
     Add,
+    Sub,
     Rem,
 }
 
