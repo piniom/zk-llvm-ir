@@ -10,31 +10,31 @@ The contract has one [function](./stylus-contract/src/lib.rs).
 
 ```rust
 pub fn mock_check(&self, secret: u32, flag: bool) -> bool {
-        let mut result = secret;
-        // using `wrapping_mul` and `unchecked_add` simplifies the IR
-        if flag {
-            result = result.wrapping_mul(3);
+    let mut result = secret;
+    // using `wrapping_mul` and `unchecked_add` simplifies the IR
+    if flag {
+        result = result.wrapping_mul(3);
+    } else {
+        if result == 900 {
+            return true;
         } else {
-            if result == 900 {
-                return true;
-            } else {
-                result = result.wrapping_add(100);
-                if result == 101 {
-                    result = 102
-                }
+            result = result.wrapping_add(100);
+            if result == 101 {
+                result = 102
             }
         }
-        if secret == 800 {
-            return true;
-        }
-
-        if secret == 800 {
-            return false;
-        }
-        result == 102
     }
+    if secret == 800 {
+        return true;
+    }
+
+    if secret == 800 {
+        return false;
+    }
+    result == 102
+}
 ```
-This is the function whose IR we'll analyze. Notice how there are a couple of different possible input pairs that return `true`. They're saved in the 'circuit/true_inputs.json` file.
+This is the function whose IR we'll analyze. Notice how there are a couple of different possible input pairs that return `true`. They're saved in the `circuit/true_inputs.json` file.
 
 ### analysis
 A Rust binary that takes the IR dumped from the stylus contract and transpiles it to a [circom](https://docs.circom.io/) circuit.
