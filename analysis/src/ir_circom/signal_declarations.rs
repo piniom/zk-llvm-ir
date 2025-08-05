@@ -1,11 +1,11 @@
-use std::collections::HashMap;
 use llvm_ir::function::Parameter;
+use std::collections::HashMap;
 
 use crate::instructions::*;
 
 pub struct SignalDeclarations {
     declared: HashMap<String, SignalDeclaration>,
-    mutable: HashMap<String, usize>
+    mutable: HashMap<String, usize>,
 }
 
 impl SignalDeclarations {
@@ -17,7 +17,10 @@ impl SignalDeclarations {
             .filter(|s| s != "self")
             .map(|s| (s.clone(), SignalDeclaration::Input(s)))
             .collect();
-        Self { declared, mutable: HashMap::new() }
+        Self {
+            declared,
+            mutable: HashMap::new(),
+        }
     }
     pub fn get_reference(&mut self, name: String) -> Reference {
         self.declared

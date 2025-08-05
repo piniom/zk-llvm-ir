@@ -25,7 +25,6 @@ impl Branch {
         } else {
             Branch::Or(other)
         }
-        
     }
     pub fn add_child(&self, child: &ParentInfo) -> Self {
         match self {

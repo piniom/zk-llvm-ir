@@ -154,7 +154,7 @@ impl CircomCodeGenerator for Expression {
             Expression::Operand(op) => op.to_circom(),
             Expression::BinaryOperation(bin_op) => bin_op.to_circom(),
             Expression::Conditional(cond) => cond.to_circom(),
-            Expression::BinaryOr(binary_or) => binary_or.to_circom()
+            Expression::BinaryOr(binary_or) => binary_or.to_circom(),
         }
     }
 }
@@ -165,7 +165,7 @@ impl CircomCodeGenerator for BinaryOperation {
             BinaryOperationType::Mul => "*",
             BinaryOperationType::Rem => "%",
             BinaryOperationType::Add => "+",
-            BinaryOperationType::Sub => "-"
+            BinaryOperationType::Sub => "-",
         };
         format!(
             "{} {} {}",
@@ -187,7 +187,6 @@ impl CircomCodeGenerator for CircomOperand {
 
 impl CircomCodeGenerator for ConditionalValue {
     fn to_circom(&self) -> String {
-        
         format!(
             "({} - {}) * {} + {}",
             self.v_if_true.to_circom(),

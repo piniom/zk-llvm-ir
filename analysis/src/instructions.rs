@@ -76,10 +76,9 @@ pub enum Reference {
 impl Reference {
     pub fn intermediate_optional(&self) -> String {
         match self {
-            Self::SignalRef(s) =>  format!("{s}O"),
-            _ => unimplemented!()
+            Self::SignalRef(s) => format!("{s}O"),
+            _ => unimplemented!(),
         }
-       
     }
 }
 
@@ -109,7 +108,7 @@ pub enum Expression {
     Operand(CircomOperand),
     BinaryOperation(BinaryOperation),
     Conditional(ConditionalValue),
-    BinaryOr(BinaryOr)
+    BinaryOr(BinaryOr),
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
@@ -123,13 +122,13 @@ pub struct BinaryOperation {
 pub struct ConditionalValue {
     pub cond: CircomOperand,
     pub v_if_true: CircomOperand,
-    pub v_if_false: CircomOperand
+    pub v_if_false: CircomOperand,
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
 pub struct BinaryOr {
     pub a: CircomOperand,
-    pub b: CircomOperand
+    pub b: CircomOperand,
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
@@ -162,7 +161,7 @@ impl IRNameToSimpleString for Operand {
         match self {
             Operand::LocalOperand { name, .. } => name.to_simple_string(),
             Operand::ConstantOperand(..) => unimplemented!(),
-            _ => unimplemented!()
+            _ => unimplemented!(),
         }
     }
 }

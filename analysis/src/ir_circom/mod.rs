@@ -32,7 +32,7 @@ impl InstructionConsumer {
                 None => {
                     self.constrs.insert(cgs.left.clone(), cgs.right.clone());
                     self.instrs.push(cgs.into())
-                },
+                }
             },
             other => self.instrs.push(other),
         }
