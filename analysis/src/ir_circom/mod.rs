@@ -50,11 +50,7 @@ impl InstructionConsumer {
 pub fn ir_to_circom(name: String, function: &Function) -> Template {
     let signals = SignalDeclarations::new(&function.parameters);
     let cfg = compute_cfg(&function.basic_blocks);
-    let mut structure = Structure {
-        signals,
-        branch_conditions: cfg.branch_conditions,
-        declared_conditions: HashMap::new(),
-    };
+    let mut structure = Structure::new(signals, cfg.branch_conditions);
     let mut circom_instructions = InstructionConsumer::default();
     let output_name = structure.signals.output_signal_name();
     circom_instructions.extend(handle_alloca(&mut structure, output_name));
@@ -99,9 +95,20 @@ pub struct Structure {
     signals: SignalDeclarations,
     branch_conditions: HashMap<Name, Branch>,
     declared_conditions: HashMap<Branch, CircomOperand>,
+    conditions: HashMap<String, String>,
+    conditions_count: usize,
 }
 
 impl Structure {
+    fn new(signals: SignalDeclarations, branch_conditions: HashMap<Name, Branch>) -> Self {
+        Self {
+            signals,
+            branch_conditions,
+            declared_conditions: HashMap::new(),
+            conditions: HashMap::new(),
+            conditions_count: 0,
+        }
+    }
     fn declare_condition(
         &mut self,
         block: &Name,
@@ -141,11 +148,11 @@ impl Structure {
         let mut operand = operands[0].clone();
 
         for cur in operands.iter().skip(1) {
-            let condition = self.signals.get_reference(format!(
-                "{}_U_{}",
-                operand.to_circom(),
-                cur.to_circom()
-            ));
+            let condition_name = self.get_name_id(
+                "COND",
+                format!("{}_U_{}", operand.to_circom(), cur.to_circom()),
+            );
+            let condition = self.signals.get_reference(condition_name);
             let instr = ConstraintGenerationAssigment {
                 left: condition.clone(),
                 right: Expression::BinaryOr(BinaryOr {
@@ -194,11 +201,12 @@ impl Structure {
 
         let parent = branch.parent();
         let parent_condition = match self.declared_conditions.get(&parent.into()) {
-            Some(c) => c,
+            Some(c) => c.clone(),
             None => return Some(condition_operand),
         };
 
-        let condition = self.signals.get_reference(branch.condition_operand_name());
+        let cond_id = self.get_name_id("COND", branch.condition_operand_name());
+        let condition = self.signals.get_reference(cond_id);
         let i = ConstraintGenerationAssigment {
             left: condition.clone(),
             right: Expression::BinaryOperation(BinaryOperation {
@@ -209,5 +217,17 @@ impl Structure {
         };
         instrs.push(i.into());
         Some(CircomOperand::Reference(condition))
+    }
+
+    fn get_name_id(&mut self, type_: impl Into<String>, name: String) -> String {
+        match self.conditions.get(&name) {
+            Some(s) => s.clone(),
+            None => {
+                let id = format!("{}_{}", type_.into(), self.conditions_count);
+                self.conditions.insert(name, id.clone());
+                self.conditions_count += 1;
+                id
+            }
+        }
     }
 }
