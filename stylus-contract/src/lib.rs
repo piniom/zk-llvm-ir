@@ -17,14 +17,32 @@ sol_storage! {
 impl SimpleContract {
     /// In its zk form and assuming `number` is a private input,
     /// this function returning true, proves that we know a number that
-    /// when transformed with a series of `add` and `mul` operations equals 1000.
+    /// satisfies the logic imposed by the code.
     /// Obviously not in any way crypthographically interesting,
     /// but enough to showcase the idea.
-    pub fn mock_check(&self, number: u32) -> bool {
-        // using `wrapping_mul` and `unchecked_add` simplifies the IR
-        let x = number.wrapping_mul(number);
-        let y = unsafe { x.unchecked_add(19) }.wrapping_mul(10);
+    /// Notice nested if-conditions and multiple return paths.
+    pub fn mock_check(&self, secret: u32, flag: bool) -> bool {
+        let mut result = secret;
 
-        y == 1000
+        if flag {
+            result = result.wrapping_mul(3);
+        } else {
+            if result == 900 {
+                return true;
+            } else {
+                result = result.wrapping_add(100);
+                if result == 101 {
+                    result = 102
+                }
+            }
+        }
+        if secret == 800 {
+            return true;
+        }
+
+        if secret == 800 {
+            return false;
+        }
+        result == 102
     }
 }
