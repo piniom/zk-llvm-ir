@@ -29,7 +29,7 @@ impl SignalDeclarations {
         if let Some(_) = self.mutable.insert(name.clone(), 0) {
             panic!("Mutable reference already declared")
         }
-        self.get_reference(format!("{name}_mut_0"))
+        self.get_reference(format!("{name}_m0"))
     }
     pub fn increment_mutable_reference(&mut self, name: String) -> Reference {
         let count = {
@@ -37,14 +37,14 @@ impl SignalDeclarations {
             *i += 1;
             *i
         };
-        self.get_reference(format!("{name}_mut_{count}"))
+        self.get_reference(format!("{name}_m{count}"))
     }
     pub fn read_mutable_reference(&mut self, name: String) -> CircomOperand {
         let count = *self.mutable.get(&name).unwrap();
-        CircomOperand::Reference(self.get_reference(format!("{name}_mut_{count}")))
+        CircomOperand::Reference(self.get_reference(format!("{name}_m{count}")))
     }
     pub fn output_signal_name(&self) -> String {
-        "OUTPUT_SIGNAL___".into()
+        "OUTPUT_".into()
     }
     pub fn output_signal_final_reference(&mut self) -> Reference {
         let name = self.output_signal_name();

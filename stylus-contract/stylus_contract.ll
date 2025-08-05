@@ -4082,6 +4082,7 @@ start:
   %secret.dbg.spill = alloca [4 x i8], align 4
   %self.dbg.spill = alloca [8 x i8], align 8
   %result = alloca [4 x i8], align 4
+  %_0 = alloca [1 x i8], align 1
   store ptr %self, ptr %self.dbg.spill, align 8
   store i32 %secret, ptr %secret.dbg.spill, align 4
   %0 = zext i1 %flag to i8
@@ -4103,8 +4104,8 @@ bb1:                                              ; preds = %start
   br label %bb7
 
 bb4:                                              ; preds = %bb3
-  store i32 102, ptr %result, align 4
-  br label %bb7
+  store i8 1, ptr %_0, align 1
+  br label %bb10
 
 bb5:                                              ; preds = %bb3
   %_9 = load i32, ptr %result, align 4
@@ -4114,18 +4115,25 @@ bb5:                                              ; preds = %bb3
   store i32 %_0.i, ptr %result, align 4
   br label %bb7
 
-bb7:                                              ; preds = %bb5, %bb4, %bb1
-  %2 = icmp eq i32 %secret, 800
-  br i1 %2, label %bb8, label %bb9
+bb10:                                             ; preds = %bb9, %bb8, %bb4
+  %2 = load i8, ptr %_0, align 1
+  %3 = trunc nuw i8 %2 to i1
+  ret i1 %3
+
+bb7:                                              ; preds = %bb5, %bb1
+  %4 = icmp eq i32 %secret, 800
+  br i1 %4, label %bb8, label %bb9
 
 bb8:                                              ; preds = %bb7
-  store i32 100, ptr %result, align 4
-  br label %bb9
+  store i8 1, ptr %_0, align 1
+  br label %bb10
 
-bb9:                                              ; preds = %bb8, %bb7
+bb9:                                              ; preds = %bb7
   %_10 = load i32, ptr %result, align 4
-  %_0 = icmp eq i32 %_10, 102
-  ret i1 %_0
+  %5 = icmp eq i32 %_10, 102
+  %6 = zext i1 %5 to i8
+  store i8 %6, ptr %_0, align 1
+  br label %bb10
 }
 
 ; Function Attrs: uwtable

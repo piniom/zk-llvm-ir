@@ -7,11 +7,47 @@ use crate::{circom_codegen::CircomCodeGenerator, instructions::CircomOperand};
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct BranchNode(pub CircomOperand, pub bool);
 
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Default)]
+pub struct SimpleBranch(pub Vec<BranchNode>);
+
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct Branch(pub Vec<BranchNode>);
+pub enum Branch {
+    Simple(SimpleBranch),
+    Or(Vec<Branch>),
+}
 
 impl Branch {
-    pub fn parent(&self) -> Branch {
+    pub fn from_many(other: Vec<Branch>) -> Branch {
+        if other.is_empty() {
+            Branch::Simple(SimpleBranch::default())
+        } else if other.len() == 1 {
+            other[0].clone()
+        } else {
+            Branch::Or(other)
+        }
+        
+    }
+    pub fn add_child(&self, child: &ParentInfo) -> Self {
+        match self {
+            Self::Simple(s) => Self::Simple(s.add_child(child)),
+            Self::Or(or) => Self::Or(or.iter().map(|s| s.add_child(child)).collect()),
+        }
+    }
+}
+
+impl SimpleBranch {
+    pub fn add_child(&self, child: &ParentInfo) -> Self {
+        match child {
+            pi @ (ParentInfo::TrueBranch(_, circom_operand)
+            | ParentInfo::FalseBranch(_, circom_operand)) => {
+                let mut conds = self.0.clone();
+                conds.push(BranchNode(circom_operand.clone(), pi.as_bool().unwrap()));
+                Self(conds)
+            }
+            ParentInfo::Merge(_) => self.clone(),
+        }
+    }
+    pub fn parent(&self) -> Self {
         if self.0.is_empty() {
             return self.clone();
         }
@@ -24,15 +60,33 @@ impl Branch {
         self.0
             .iter()
             .map(|BranchNode(operand, bool)| {
-                format!("_{}{}", operand.to_circom(), if *bool { "T" } else { "F" })
+                format!("{}{}", operand.to_circom(), if *bool { "" } else { "F" })
             })
             .collect()
     }
 }
 
-impl From<Vec<BranchNode>> for Branch {
+impl From<Vec<BranchNode>> for SimpleBranch {
     fn from(value: Vec<BranchNode>) -> Self {
         Self(value)
+    }
+}
+
+impl From<Vec<BranchNode>> for Branch {
+    fn from(value: Vec<BranchNode>) -> Self {
+        Self::Simple(SimpleBranch::from(value))
+    }
+}
+
+impl From<SimpleBranch> for Branch {
+    fn from(value: SimpleBranch) -> Self {
+        Self::Simple(value)
+    }
+}
+
+impl From<&SimpleBranch> for Branch {
+    fn from(value: &SimpleBranch) -> Self {
+        Branch::Simple(value.clone())
     }
 }
 
@@ -87,7 +141,7 @@ fn children(blocks: &[BasicBlock]) -> HashMap<Name, ChildrenInfo> {
 }
 
 #[derive(Debug, Clone)]
-enum ParentInfo {
+pub enum ParentInfo {
     TrueBranch(Name, CircomOperand),
     FalseBranch(Name, CircomOperand),
     Merge(Name),
@@ -99,12 +153,6 @@ impl ParentInfo {
             ParentInfo::TrueBranch(..) => Some(true),
             ParentInfo::FalseBranch(..) => Some(false),
             ParentInfo::Merge(_) => None,
-        }
-    }
-    fn is_merge(&self) -> bool {
-        match self {
-            ParentInfo::Merge(_) => true,
-            _ => false,
         }
     }
     fn name(&self) -> &Name {
@@ -198,37 +246,22 @@ fn branch_conditions(
     sorted_blocks: &[Name],
     parents_info: &HashMap<Name, Vec<ParentInfo>>,
 ) -> HashMap<Name, Branch> {
-    let mut conditions: HashMap<Name, Vec<BranchNode>> = HashMap::new();
+    let mut conditions: HashMap<Name, Branch> = HashMap::new();
     for block in sorted_blocks {
         let d = vec![];
         let parents: &[ParentInfo] = parents_info.get(block).unwrap_or(&d);
-        let branch: Vec<_> = match parents {
-            [] => vec![],
-            [pi @ (ParentInfo::TrueBranch(p, op) | ParentInfo::FalseBranch(p, op))] => [
-                conditions.get(p).unwrap().clone(),
-                vec![BranchNode(op.clone(), pi.as_bool().unwrap())],
-            ]
-            .into_iter()
-            .flatten()
-            .collect(),
-            merge if merge.iter().all(ParentInfo::is_merge) => {
-                let try_merge = branch_gca(
-                &merge
-                    .into_iter()
-                    .map(|pi| conditions.get(pi.name()).unwrap())
-                    .collect::<Vec<_>>());
-                try_merge
-            },
-            a => panic!("Weird CFG structure: {a:?}"),
-        };
+        let branch = Branch::from_many(
+            parents
+                .into_iter()
+                .map(|p| conditions.get(p.name()).unwrap().add_child(p))
+                .collect(),
+        );
         conditions.insert(block.clone(), branch);
     }
     conditions
-        .into_iter()
-        .map(|(k, v)| (k, Branch(v)))
-        .collect()
 }
 
+#[allow(dead_code)]
 fn branch_gca(parents: &[&Vec<BranchNode>]) -> Vec<BranchNode> {
     if parents.is_empty() {
         return vec![].into();

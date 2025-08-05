@@ -181,7 +181,7 @@ fn handle_icmp_instruction(
     let name = icmp.dest.to_simple_string();
     let dest = structure.signals.get_reference(name.clone());
     let component = ComponentInstatiation {
-        name: format! {"{}_is_equal", name},
+        name: format! {"{}_EQ", name},
         component: "IsEqual".to_string(),
     };
     let x = ConstraintGenerationAssigment {

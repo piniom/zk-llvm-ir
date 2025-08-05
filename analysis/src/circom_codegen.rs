@@ -153,7 +153,8 @@ impl CircomCodeGenerator for Expression {
         match self {
             Expression::Operand(op) => op.to_circom(),
             Expression::BinaryOperation(bin_op) => bin_op.to_circom(),
-            Expression::Conditional(cond) => cond.to_circom()
+            Expression::Conditional(cond) => cond.to_circom(),
+            Expression::BinaryOr(binary_or) => binary_or.to_circom()
         }
     }
 }
@@ -193,6 +194,18 @@ impl CircomCodeGenerator for ConditionalValue {
             self.v_if_false.to_circom(),
             self.cond.to_circom(),
             self.v_if_false.to_circom()
+        )
+    }
+}
+
+impl CircomCodeGenerator for BinaryOr {
+    fn to_circom(&self) -> String {
+        format!(
+            "({} + {}) - ({} * {})",
+            self.a.to_circom(),
+            self.b.to_circom(),
+            self.a.to_circom(),
+            self.b.to_circom()
         )
     }
 }

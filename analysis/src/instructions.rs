@@ -76,7 +76,7 @@ pub enum Reference {
 impl Reference {
     pub fn intermediate_optional(&self) -> String {
         match self {
-            Self::SignalRef(s) =>  format!("{s}_optional"),
+            Self::SignalRef(s) =>  format!("{s}O"),
             _ => unimplemented!()
         }
        
@@ -108,7 +108,8 @@ impl From<&llvm_ir::Operand> for CircomOperand {
 pub enum Expression {
     Operand(CircomOperand),
     BinaryOperation(BinaryOperation),
-    Conditional(ConditionalValue)
+    Conditional(ConditionalValue),
+    BinaryOr(BinaryOr)
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
@@ -123,6 +124,12 @@ pub struct ConditionalValue {
     pub cond: CircomOperand,
     pub v_if_true: CircomOperand,
     pub v_if_false: CircomOperand
+}
+
+#[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
+pub struct BinaryOr {
+    pub a: CircomOperand,
+    pub b: CircomOperand
 }
 
 #[derive(Debug, Clone, Hash, PartialEq, Eq, PartialOrd, Ord)]
@@ -143,7 +150,7 @@ impl IRNameToSimpleString for Name {
         let s = self.to_string().replace("%", "").replace(".", "_");
         let first = s.chars().nth(0).unwrap();
         if s.starts_with("_") || first.is_numeric() {
-            format!("x{s}")
+            format!("X{s}")
         } else {
             s
         }

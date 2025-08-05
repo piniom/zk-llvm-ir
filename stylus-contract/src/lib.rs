@@ -34,14 +34,14 @@ impl SimpleContract {
             result = result.wrapping_mul(3);
         } else {
             if result == 900 {
-                result = 102;
+                return true;
             } else {
                 result = result.wrapping_add(100);
             }
         }
 
         if secret == 800 {
-            result = 100;
+            return true;
         }
 
         // Maybe add more conditions or a small loop here
