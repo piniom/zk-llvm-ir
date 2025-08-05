@@ -6,21 +6,39 @@ The repository consists of several folders, the structure of which should provid
 
 ### stylus-contract
 A simple contract written using the [cargo-stylus](https://github.com/OffchainLabs/cargo-stylus) ecosystem.
-The contract has one [function](./stylus-contract/src/lib.rs) that mocks a hashing process.
+The contract has one [function](./stylus-contract/src/lib.rs).
 
 ```rust
-pub fn mock_check(&self, number: u32) -> bool {
-    // using `wrapping_mul` and `unchecked_add` simplifies the IR
-    let x = number.wrapping_mul(number);
-    let y = unsafe { x.unchecked_add(19) }.wrapping_mul(10);
+pub fn mock_check(&self, secret: u32, flag: bool) -> bool {
+        let mut result = secret;
+        // using `wrapping_mul` and `unchecked_add` simplifies the IR
+        if flag {
+            result = result.wrapping_mul(3);
+        } else {
+            if result == 900 {
+                return true;
+            } else {
+                result = result.wrapping_add(100);
+                if result == 101 {
+                    result = 102
+                }
+            }
+        }
+        if secret == 800 {
+            return true;
+        }
 
-    y == 1000
-}
+        if secret == 800 {
+            return false;
+        }
+        result == 102
+    }
 ```
-This is the function whose IR we'll analyze. 
+This is the function whose IR we'll analyze. Notice how there are a couple of different possible input pairs that return `true`. They're saved in the 'circuit/true_inputs.json` file.
 
 ### analysis
-A Rust binary that takes the IR dumped from the stylus contract and transforms it to a [circom](https://docs.circom.io/) circuit.
+A Rust binary that takes the IR dumped from the stylus contract and transpiles it to a [circom](https://docs.circom.io/) circuit.
+It supports if-else statements. The IRs CFG is sorted topologically, and the store instructions that affect branch-shared data are done conditionally based on the corresponding branches' conditions. (Bounded) loops are not supported for now.
 
 ### circuit
 This is the [circom](https://docs.circom.io/) project that is the product of the IR analysis.
@@ -68,6 +86,8 @@ circom mock_check.circom --r1cs --wasm --sym
 ### Generating the witness
 
 If you want to read more about what is the *witness* I refer you to [here](https://docs.circom.io/getting-started/computing-the-witness/#what-is-a-witness).
+
+The inputs to the circuit are saved in the `circuit/input.json` file.
 
 While in the `circuit` directory execute the following:
 ```bash
@@ -122,7 +142,7 @@ snarkjs zkey export solidityverifier mock_check_0001.zkey verifier.sol
 This produces a solidity contract `verifier.sol` that can be deployed and tested.
 The contract has one method:
 ```
-function verifyProof(uint[2] calldata _pA, uint[2][2] calldata _pB, uint[2] calldata _pC, uint[1] calldata _pubSignals) public view returns (bool) { .. }
+function verifyProof(uint[2] calldata _pA, uint[2][2] calldata _pB, uint[2] calldata _pC, uint[2] calldata _pubSignals) public view returns (bool) { .. }
 ```
 This method takes the encoded zk-proof and outputs a boolean indicating its correctness.
 
@@ -134,7 +154,7 @@ snarkjs generatecall
 
 ## Deployed contract
 
-The example contract (`verifier.sol`), produced with the above steps, is deployed to testnet and can be viewed here:
+The example contract (`verifier.sol`), produced with the above steps (but for a simpler `mock_check` function), is deployed to testnet and can be viewed here:
 
 https://sepolia.etherscan.io/address/0x4c37bed9ce2d4318452bd996ee6caa6065dd7c44#code
 

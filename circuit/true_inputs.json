@@ -1,0 +1,26 @@
+[
+    {
+        "secret": 34,
+        "flag": 1
+    },
+    {
+        "secret": 900,
+        "flag": 0
+    },
+    {
+        "secret": 2,
+        "flag": 0
+    },
+    {
+        "secret": 1,
+        "flag": 0
+    },
+    {
+        "secret": 800,
+        "flag": 1
+    },
+    {
+        "secret": 800,
+        "flag": 0
+    }
+]

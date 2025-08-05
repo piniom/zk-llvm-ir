@@ -31,14 +31,12 @@ target triple = "arm64-apple-macosx11.0.0"
 @alloc_4be601d50b4e1e0b8de2c5c15d394d1b = private unnamed_addr constant [105 x i8] c"/Users/szymon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/alloy-sol-types-0.8.20/src/types/ty.rs", align 1
 @alloc_13b013f2f7fee66d8922b9d3594b8f10 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @alloc_4be601d50b4e1e0b8de2c5c15d394d1b, [16 x i8] c"i\00\00\00\00\00\00\00\1D\01\00\00\0D\00\00\00" }>, align 8
 @alloc_2d8d36bbe512538c346ba80703132055 = private unnamed_addr constant [264 x i8] c"(uint32,bool)\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\0D\00\00\00\00\00\00\00", align 8
-@alloc_cde9f5c1f4cf2df8acc897a6cd9a712b = private unnamed_addr constant [264 x i8] c"(uint32)\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", align 8
-@alloc_a6a0cc8156fe455996de64a9d05b1dfe = private unnamed_addr constant [184 x i8] c"unsafe precondition(s) violated: u32::unchecked_add cannot overflow\0A\0AThis indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.", align 1
 @alloc_fad0cd83b7d1858a846a172eb260e593 = private unnamed_addr constant [42 x i8] c"is_aligned_to: align is not a power-of-two", align 1
 @alloc_e92e94d0ff530782b571cfd99ec66aef = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @alloc_fad0cd83b7d1858a846a172eb260e593, [8 x i8] c"*\00\00\00\00\00\00\00" }>, align 8
 @alloc_22bf9a1f84384eeb28ba204fb4528bd0 = private unnamed_addr constant [111 x i8] c"/Users/szymon/.rustup/toolchains/1.87.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/ub_checks.rs", align 1
 @alloc_db8c616c766d1a89e5d4696587e16d9c = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @alloc_22bf9a1f84384eeb28ba204fb4528bd0, [16 x i8] c"o\00\00\00\00\00\00\00\86\00\00\006\00\00\00" }>, align 8
 @alloc_a28e8c8fd5088943a8b5d44af697ff83 = private unnamed_addr constant [279 x i8] c"unsafe precondition(s) violated: slice::from_raw_parts requires the pointer to be aligned and non-null, and the total size of the slice not to exceed `isize::MAX`\0A\0AThis indicates a bug in the program. This Undefined Behavior check is optional, and cannot be relied on for safety.", align 1
-@anon.b7c2725e621f0c23a77f5b895c93f166.0 = private unnamed_addr constant <{ [8 x i8], [8 x i8] }> <{ [8 x i8] zeroinitializer, [8 x i8] undef }>, align 8
+@anon.4c2ddb19647d588107b2230d5484af4a.0 = private unnamed_addr constant <{ [8 x i8], [8 x i8] }> <{ [8 x i8] zeroinitializer, [8 x i8] undef }>, align 8
 @alloc_2184e2b12c2f08a71039b2ef859a686f = private unnamed_addr constant [115 x i8] c"/Users/szymon/.rustup/toolchains/1.87.0-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/ptr/const_ptr.rs", align 1
 @alloc_f6cb7fe5684a623ae4ac322af822e805 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @alloc_2184e2b12c2f08a71039b2ef859a686f, [16 x i8] c"s\00\00\00\00\00\00\00\C3\05\00\00\0D\00\00\00" }>, align 8
 @vtable.0 = private constant <{ [24 x i8], ptr }> <{ [24 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN67_$LT$core..array..TryFromSliceError$u20$as$u20$core..fmt..Debug$GT$3fmt17h591cf7a358407301E" }>, align 8
@@ -66,15 +64,12 @@ target triple = "arm64-apple-macosx11.0.0"
 @alloc_69cb315dd101c99b63b2cc71591238b4 = private unnamed_addr constant <{ [24 x i8], ptr }> <{ [24 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..calls..ValueTransfer$GT$12transfer_eth17h09ba9287da9e0388E" }>, align 8
 @alloc_74f84af8b6f7e31267b58622dbf3a1d4 = private unnamed_addr constant <{ [24 x i8], ptr }> <{ [24 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN41_$LT$T$u20$as$u20$dyn_clone..DynClone$GT$11__clone_box17ha0f92ffead36b733E" }>, align 8
 @vtable.2 = private constant <{ [24 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ [24 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN78_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..CryptographyAccess$GT$16native_keccak25617haab731fcac451c07E", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..CalldataAccess$GT$9read_args17h42ecda453c5a56faE", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..CalldataAccess$GT$16read_return_data17hac0b7e8267c05f60E", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..CalldataAccess$GT$16return_data_size17h5916672465921aeaE", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..CalldataAccess$GT$12write_result17h0603230ed749ad59E", ptr @alloc_51e48cc205472ce238612d65620158b1, ptr @"_ZN82_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..UnsafeDeploymentAccess$GT$7create117h070009f0f6caeda8E", ptr @"_ZN82_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..UnsafeDeploymentAccess$GT$7create217hac9052e9dd4087fcE", ptr @alloc_ca60fc0861ab7576386f7bdf8d6067cb, ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..StorageAccess$GT$20storage_load_bytes3217he13851cc1a088fa6E", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..StorageAccess$GT$21storage_cache_bytes3217h3131021c76ce4f10E", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..StorageAccess$GT$11flush_cache17h1bfd9b1664088ab9E", ptr @alloc_3f1b1023be2ee010f52600ca3a7c6bcd, ptr @"_ZN76_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..UnsafeCallAccess$GT$13call_contract17hf43cbc0eff65036dE", ptr @"_ZN76_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..UnsafeCallAccess$GT$20static_call_contract17h714daf08d072a987E", ptr @"_ZN76_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..UnsafeCallAccess$GT$22delegate_call_contract17h715d17cb3f47d07dE", ptr @alloc_68f14b88cf416bd8161de0badc974478, ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..BlockAccess$GT$13block_basefee17he9a0fa0885cf03e3E", ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..BlockAccess$GT$14block_coinbase17h3bb9f535aa06ad53E", ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..BlockAccess$GT$12block_number17h8a8deda13a3d08b0E", ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..BlockAccess$GT$15block_timestamp17h961867e5a98e12d5E", ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..BlockAccess$GT$15block_gas_limit17h2b2d7942ca869659E", ptr @alloc_35f11026e64c5880e551d04406ca88fb, ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..ChainAccess$GT$8chain_id17h1bfeefb81616d61cE", ptr @alloc_865a7441f4495c48371fb45f4623ae3e, ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..AccountAccess$GT$7balance17hc7f393c9d104b946E", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..AccountAccess$GT$16contract_address17h936728498e72d0c7E", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..AccountAccess$GT$4code17he83bdffe3503571aE", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..AccountAccess$GT$9code_size17h8f0cb2fe3f6cc2e5E", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..AccountAccess$GT$9code_hash17h96190a5cabecc329E", ptr @alloc_dfae7b7e80cda2667969577f0dddf65e, ptr @"_ZN72_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MemoryAccess$GT$19pay_for_memory_grow17h93a6ae2f8b341ab4E", ptr @alloc_7980ea2fd6f3648b8096fce8f7f216e7, ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MessageAccess$GT$10msg_sender17hf42128fe7b4045afE", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MessageAccess$GT$13msg_reentrant17h19620848b1b8840eE", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MessageAccess$GT$9msg_value17h310572928a81e1d3E", ptr @"_ZN73_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MessageAccess$GT$9tx_origin17h4bb6d6b471e699cdE", ptr @alloc_317ed484f033c24b753723f4634ea4a3, ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MeteringAccess$GT$12evm_gas_left17hd3c1674df02fdbc1E", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MeteringAccess$GT$12evm_ink_left17h43b8482c449c332cE", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MeteringAccess$GT$12tx_gas_price17h8c56e64d2a1e8490E", ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..MeteringAccess$GT$12tx_ink_price17h4e6498ac63e71347E", ptr @_ZN11stylus_core4host14MeteringAccess10ink_to_gas17h17205ae059a4644bE, ptr @_ZN11stylus_core4host14MeteringAccess10gas_to_ink17hd311c121fdbba818E, ptr @alloc_e8d70cd6d07cec3182f6933412275dc4, ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..calls..CallAccess$GT$11static_call17hda5df8eec706ed37E", ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..calls..CallAccess$GT$13delegate_call17h9b109ad783bffe95E", ptr @"_ZN71_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..calls..CallAccess$GT$4call17h50ddf9e6e3949561E", ptr @alloc_96b37c71f67172910e761f342a98de34, ptr @"_ZN78_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..deploy..DeploymentAccess$GT$6deploy17hb4b629a777ee0faaE", ptr @alloc_cfd367254ddf6f4b7fbe31ce7d97778e, ptr @"_ZN69_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..LogAccess$GT$8emit_log17h1ee24d3d973f642dE", ptr @"_ZN69_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..host..LogAccess$GT$7raw_log17h3db083aa2b377adbE", ptr @alloc_a16080df52762dac0fe1256f61fc0339, ptr @"_ZN74_$LT$stylus_sdk..host..VM$u20$as$u20$stylus_core..calls..ValueTransfer$GT$12transfer_eth17h09ba9287da9e0388E", ptr @alloc_69cb315dd101c99b63b2cc71591238b4, ptr @"_ZN41_$LT$T$u20$as$u20$dyn_clone..DynClone$GT$11__clone_box17ha0f92ffead36b733E", ptr @alloc_74f84af8b6f7e31267b58622dbf3a1d4 }>, align 8
-@anon.b7c2725e621f0c23a77f5b895c93f166.1 = private unnamed_addr constant [32 x i8] c"\8C|\FEUU\B9\A2\D9\1C\086\02\1BQf\D6=\EA\0A\D88+\BFD\80\D4k\CA\9E\FB\19\D7", align 8
+@anon.4c2ddb19647d588107b2230d5484af4a.1 = private unnamed_addr constant [32 x i8] c"\8C|\FEUU\B9\A2\D9\1C\086\02\1BQf\D6=\EA\0A\D88+\BFD\80\D4k\CA\9E\FB\19\D7", align 8
 @alloc_5308da89c19e668df51438c22b3f6ac1 = private unnamed_addr constant [10 x i8] c"mock_check", align 1
-@alloc_275fb343856aab4b495957d4927854a6 = private unnamed_addr constant [14 x i8] c"advanced_check", align 1
 @alloc_8821998f047ca62cad40e6bc4e4d87c4 = private unnamed_addr constant [1 x i8] c"\01", align 1
 @alloc_395c7685f61be1f1bb4f95f931c6fa2b = private unnamed_addr constant [65 x i8] c"function mock_check cannot be overriden with function marked View", align 1
 @alloc_0c171dd1772b5bddb6a92bab465a19e9 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @alloc_395c7685f61be1f1bb4f95f931c6fa2b, [8 x i8] c"A\00\00\00\00\00\00\00" }>, align 8
 @alloc_f1e4470742ad6705a1f7c38a8b53afbf = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @alloc_f5ffd2fd1476bab43ad89fb40c72d0c5, [16 x i8] c"\0A\00\00\00\00\00\00\00\10\00\00\00\01\00\00\00" }>, align 8
-@alloc_01613ddc1c41fde6c09db7073d7eb427 = private unnamed_addr constant [69 x i8] c"function advanced_check cannot be overriden with function marked View", align 1
-@alloc_42b515b58d35ad2f12fe48a98b931dc2 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @alloc_01613ddc1c41fde6c09db7073d7eb427, [8 x i8] c"E\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint uwtable
 define i32 @"_ZN104_$LT$alloy_sol_types..types..data_type..Uint$LT$_$GT$$u20$as$u20$alloy_sol_types..types..ty..SolType$GT$10detokenize17h5b6c3facfedd57d8E"(ptr align 1 %token) unnamed_addr #0 {
@@ -100,35 +95,22 @@ start:
 ; Function Attrs: uwtable
 define void @_ZN10stylus_sdk3abi17router_entrypoint17h17af5f87eb8363f3E(ptr sret([32 x i8]) align 8 %_0, ptr align 8 %input) unnamed_addr #1 personality ptr @rust_eh_personality {
 start:
-  %input.dbg.spill.i27 = alloca [16 x i8], align 8
-  %storage.dbg.spill.i28 = alloca [8 x i8], align 8
-  %storage.dbg.spill.i26 = alloca [8 x i8], align 8
-  %input.dbg.spill.i24 = alloca [16 x i8], align 8
-  %storage.dbg.spill.i25 = alloca [8 x i8], align 8
-  %input.dbg.spill.i22 = alloca [16 x i8], align 8
-  %storage.dbg.spill.i23 = alloca [8 x i8], align 8
+  %input.dbg.spill.i20 = alloca [16 x i8], align 8
+  %storage.dbg.spill.i21 = alloca [8 x i8], align 8
+  %storage.dbg.spill.i19 = alloca [8 x i8], align 8
+  %input.dbg.spill.i17 = alloca [16 x i8], align 8
+  %storage.dbg.spill.i18 = alloca [8 x i8], align 8
+  %input.dbg.spill.i15 = alloca [16 x i8], align 8
+  %storage.dbg.spill.i16 = alloca [8 x i8], align 8
   %0 = alloca [16 x i8], align 8
-  %_2.i7.i = alloca [24 x i8], align 8
-  %self.i8.i = alloca [1 x i8], align 1
-  %1 = alloca [16 x i8], align 8
   %_2.i.i = alloca [24 x i8], align 8
   %self.i.i = alloca [1 x i8], align 1
-  %result.dbg.spill6.i = alloca [1 x i8], align 1
-  %args.dbg.spill4.i = alloca [8 x i8], align 4
   %result.dbg.spill.i = alloca [1 x i8], align 1
-  %args.dbg.spill.i = alloca [4 x i8], align 4
+  %args.dbg.spill.i = alloca [8 x i8], align 4
   %input.dbg.spill.i = alloca [16 x i8], align 8
   %selector.dbg.spill.i = alloca [4 x i8], align 4
   %storage.dbg.spill.i = alloca [8 x i8], align 8
-  %_40.i = alloca [32 x i8], align 8
-  %_34.i = alloca [24 x i8], align 8
-  %_33.i = alloca [32 x i8], align 8
-  %err3.i = alloca [48 x i8], align 8
-  %_28.i = alloca [48 x i8], align 8
-  %_27.i = alloca [32 x i8], align 8
-  %err2.i = alloca [24 x i8], align 8
-  %_22.i = alloca [24 x i8], align 8
-  %_21.i = alloca [32 x i8], align 8
+  %_22.i = alloca [32 x i8], align 8
   %_16.i = alloca [24 x i8], align 8
   %_15.i = alloca [32 x i8], align 8
   %err1.i = alloca [48 x i8], align 8
@@ -136,18 +118,18 @@ start:
   %_9.i = alloca [32 x i8], align 8
   %err.i = alloca [24 x i8], align 8
   %_4.i = alloca [24 x i8], align 8
-  %2 = alloca [16 x i8], align 8
+  %1 = alloca [16 x i8], align 8
   %e.i = alloca [0 x i8], align 1
   %t.i = alloca [4 x i8], align 1
-  %3 = alloca [8 x i8], align 8
+  %2 = alloca [8 x i8], align 8
   %self.i = alloca [5 x i8], align 1
   %selector.dbg.spill = alloca [4 x i8], align 4
+  %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
-  %5 = alloca [4 x i8], align 4
+  %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
-  %7 = alloca [8 x i8], align 8
-  %8 = alloca [16 x i8], align 8
-  %9 = alloca [32 x i8], align 8
+  %7 = alloca [16 x i8], align 8
+  %8 = alloca [32 x i8], align 8
   %host.dbg.spill = alloca [0 x i8], align 1
   %_2.dbg.spill = alloca [0 x i8], align 1
   %_47 = alloca [24 x i8], align 8
@@ -165,8 +147,8 @@ start:
   %res = alloca [24 x i8], align 8
   %_6 = alloca [24 x i8], align 8
   %storage = alloca [0 x i8], align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 @alloc_6ca8591423d98ecbd315de1d1a6fea68, i64 32, i1 false)
-  invoke void @"_ZN92_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..storage..traits..StorageType$GT$3new17h760660dc66ae503eE"(ptr align 8 %9, i8 0)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 @alloc_6ca8591423d98ecbd315de1d1a6fea68, i64 32, i1 false)
+  invoke void @"_ZN92_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..storage..traits..StorageType$GT$3new17h760660dc66ae503eE"(ptr align 8 %8, i8 0)
           to label %bb1 unwind label %cleanup
 
 bb42:                                             ; preds = %bb41, %cleanup
@@ -174,13 +156,13 @@ bb42:                                             ; preds = %bb41, %cleanup
           to label %bb43 unwind label %terminate
 
 cleanup:                                          ; preds = %start
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %11 = extractvalue { ptr, i32 } %10, 0
-  %12 = extractvalue { ptr, i32 } %10, 1
-  store ptr %11, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %12, ptr %13, align 8
+  %10 = extractvalue { ptr, i32 } %9, 0
+  %11 = extractvalue { ptr, i32 } %9, 1
+  store ptr %10, ptr %7, align 8
+  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %11, ptr %12, align 8
   br label %bb42
 
 bb1:                                              ; preds = %start
@@ -190,22 +172,22 @@ bb1:                                              ; preds = %start
 bb41:                                             ; preds = %cleanup5.body
   br label %bb42
 
-cleanup5:                                         ; preds = %bb11, %bb10, %bb6, %bb5, %bb35, %bb34, %bb24, %bb29, %_37.i.noexc, %bb23.i, %.noexc18, %bb22.i, %.noexc16, %bb19.i, %_19.i.noexc, %bb11.i, %.noexc10, %bb10.i, %.noexc8, %bb6.i, %bb2.i6, %bb3.i, %bb20, %bb25, %bb18, %bb16, %bb15, %bb30, %bb13, %bb1
-  %14 = landingpad { ptr, i32 }
+cleanup5:                                         ; preds = %bb11, %bb10, %bb6, %bb5, %bb35, %bb34, %bb24, %bb29, %_19.i.noexc, %bb10.i, %.noexc9, %bb9.i, %.noexc7, %bb5.i, %bb2.i6, %bb20, %bb25, %bb18, %bb16, %bb15, %bb30, %bb13, %bb1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  br label %cleanup5.body14
+  br label %cleanup5.body13
 
-cleanup5.body14:                                  ; preds = %cleanup.i.i, %cleanup.i9.i, %cleanup5
-  %eh.lpad-body15 = phi { ptr, i32 } [ %14, %cleanup5 ], [ %61, %cleanup.i9.i ], [ %83, %cleanup.i.i ]
+cleanup5.body13:                                  ; preds = %cleanup.i.i, %cleanup5
+  %eh.lpad-body14 = phi { ptr, i32 } [ %13, %cleanup5 ], [ %62, %cleanup.i.i ]
   br label %cleanup5.body
 
-cleanup5.body:                                    ; preds = %cleanup.i, %cleanup5.body14
-  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body15, %cleanup5.body14 ], [ %32, %cleanup.i ]
-  %15 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %16 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  store ptr %15, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 %16, ptr %17, align 8
+cleanup5.body:                                    ; preds = %cleanup.i, %cleanup5.body13
+  %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body14, %cleanup5.body13 ], [ %31, %cleanup.i ]
+  %14 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %15 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+  store ptr %14, ptr %7, align 8
+  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 %15, ptr %16, align 8
   br label %bb41
 
 bb2:                                              ; preds = %bb1
@@ -216,7 +198,7 @@ bb13:                                             ; preds = %bb2
           to label %bb14 unwind label %cleanup5
 
 bb3:                                              ; preds = %bb2
-  store ptr %storage, ptr %storage.dbg.spill.i26, align 8
+  store ptr %storage, ptr %storage.dbg.spill.i19, align 8
   store i64 -9223372036854775807, ptr %_6, align 8
   br label %bb4
 
@@ -225,65 +207,65 @@ bb14:                                             ; preds = %bb13
   br i1 %_17, label %bb15, label %bb30
 
 bb30:                                             ; preds = %bb24, %bb29, %bb14
-  %18 = invoke { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h25c23094de5b4a85E"(ptr align 8 %input)
+  %17 = invoke { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h25c23094de5b4a85E"(ptr align 8 %input)
           to label %bb31 unwind label %cleanup5
 
 bb15:                                             ; preds = %bb14
-  %19 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfd937df0419684edE"(ptr align 8 %input, i64 4, ptr align 8 @alloc_e2f0943361c32c3a8376c4efdc1d1251)
+  %18 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hfd937df0419684edE"(ptr align 8 %input, i64 4, ptr align 8 @alloc_e2f0943361c32c3a8376c4efdc1d1251)
           to label %bb16 unwind label %cleanup5
 
 bb16:                                             ; preds = %bb15
-  %_23.0 = extractvalue { ptr, i64 } %19, 0
-  %_23.1 = extractvalue { ptr, i64 } %19, 1
-  %20 = invoke i40 @"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h23be89536c1e73b9E"(ptr align 1 %_23.0, i64 %_23.1)
+  %_23.0 = extractvalue { ptr, i64 } %18, 0
+  %_23.1 = extractvalue { ptr, i64 } %18, 1
+  %19 = invoke i40 @"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h23be89536c1e73b9E"(ptr align 1 %_23.0, i64 %_23.1)
           to label %bb17 unwind label %cleanup5
 
 bb17:                                             ; preds = %bb16
-  store i40 %20, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_22, ptr align 8 %7, i64 5, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 1 %_22, i64 5, i1 false)
-  %21 = load i40, ptr %6, align 8
-  store i40 %21, ptr %3, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %self.i, ptr align 8 %3, i64 5, i1 false)
-  %22 = load i8, ptr %self.i, align 1
-  %23 = trunc nuw i8 %22 to i1
-  %_2.i = zext i1 %23 to i64
-  br i1 %23, label %bb2.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hba0e467ad18c1b21E.exit"
+  store i40 %19, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_22, ptr align 8 %6, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 1 %_22, i64 5, i1 false)
+  %20 = load i40, ptr %5, align 8
+  store i40 %20, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %self.i, ptr align 8 %2, i64 5, i1 false)
+  %21 = load i8, ptr %self.i, align 1
+  %22 = trunc nuw i8 %21 to i1
+  %_2.i = zext i1 %22 to i64
+  br i1 %22, label %bb2.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hba0e467ad18c1b21E.exit"
 
 bb2.i:                                            ; preds = %bb17
   invoke void @_ZN4core6result13unwrap_failed17hd402f38eeb0f0f01E(ptr align 1 @alloc_00ae4b301f7fab8ac9617c03fcbd7274, i64 43, ptr align 1 %e.i, ptr align 8 @vtable.0, ptr align 8 @alloc_e129c819980e83a1ed2bb38d1f8dfa08) #12
           to label %unreachable.i unwind label %cleanup.i
 
 cleanup.i:                                        ; preds = %bb2.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %25 = extractvalue { ptr, i32 } %24, 0
-  %26 = extractvalue { ptr, i32 } %24, 1
-  store ptr %25, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 %26, ptr %27, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = insertvalue { ptr, i32 } poison, ptr %28, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  %24 = extractvalue { ptr, i32 } %23, 0
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store ptr %24, ptr %1, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %25, ptr %26, align 8
+  %27 = load ptr, ptr %1, align 8
+  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = insertvalue { ptr, i32 } poison, ptr %27, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
   br label %cleanup5.body
 
 unreachable.i:                                    ; preds = %bb2.i
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hba0e467ad18c1b21E.exit": ; preds = %bb17
-  %33 = getelementptr inbounds i8, ptr %self.i, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %t.i, ptr align 1 %33, i64 4, i1 false)
-  %34 = load i32, ptr %t.i, align 1
+  %32 = getelementptr inbounds i8, ptr %self.i, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %t.i, ptr align 1 %32, i64 4, i1 false)
+  %33 = load i32, ptr %t.i, align 1
   br label %bb18
 
 bb18:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hba0e467ad18c1b21E.exit"
-  store i32 %34, ptr %5, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_21, ptr align 4 %5, i64 4, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr align 1 %_21, i64 4, i1 false)
-  %35 = load i32, ptr %4, align 4
-  %selector = invoke i32 @"_ZN4core3num21_$LT$impl$u20$u32$GT$13from_be_bytes17h2308df79fb014afaE"(i32 %35)
+  store i32 %33, ptr %4, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_21, ptr align 4 %4, i64 4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %3, ptr align 1 %_21, i64 4, i1 false)
+  %34 = load i32, ptr %3, align 4
+  %selector = invoke i32 @"_ZN4core3num21_$LT$impl$u20$u32$GT$13from_be_bytes17h2308df79fb014afaE"(i32 %34)
           to label %bb19 unwind label %cleanup5
 
 bb19:                                             ; preds = %bb18
@@ -292,227 +274,134 @@ bb19:                                             ; preds = %bb18
   br i1 %_26, label %bb20, label %bb25
 
 bb25:                                             ; preds = %bb19
-  %36 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h786e0a53e1d7525dE"(ptr align 8 %input, i64 4, ptr align 8 @alloc_f782c61bdf393166fd37eecf0f1a3b37)
+  %35 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h786e0a53e1d7525dE"(ptr align 8 %input, i64 4, ptr align 8 @alloc_f782c61bdf393166fd37eecf0f1a3b37)
           to label %bb26 unwind label %cleanup5
 
 bb20:                                             ; preds = %bb19
-  %37 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h786e0a53e1d7525dE"(ptr align 8 %input, i64 4, ptr align 8 @alloc_52442e2710b5e2f519eb9173ce0d492d)
+  %36 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h786e0a53e1d7525dE"(ptr align 8 %input, i64 4, ptr align 8 @alloc_52442e2710b5e2f519eb9173ce0d492d)
           to label %bb21 unwind label %cleanup5
 
 bb26:                                             ; preds = %bb25
-  %_36.0 = extractvalue { ptr, i64 } %36, 0
-  %_36.1 = extractvalue { ptr, i64 } %36, 1
+  %_36.0 = extractvalue { ptr, i64 } %35, 0
+  %_36.1 = extractvalue { ptr, i64 } %35, 1
   store ptr %storage, ptr %storage.dbg.spill.i, align 8
   store i32 %selector, ptr %selector.dbg.spill.i, align 4
   store ptr %_36.0, ptr %input.dbg.spill.i, align 8
-  %38 = getelementptr inbounds i8, ptr %input.dbg.spill.i, i64 8
-  store i64 %_36.1, ptr %38, align 8
-  switch i32 %selector, label %bb1.i [
-    i32 1195846358, label %bb3.i
-    i32 2039434019, label %bb2.i6
-  ]
+  %37 = getelementptr inbounds i8, ptr %input.dbg.spill.i, i64 8
+  store i64 %_36.1, ptr %37, align 8
+  %38 = icmp eq i32 %selector, -2145704751
+  br i1 %38, label %bb2.i6, label %bb1.i
+
+bb2.i6:                                           ; preds = %bb26
+  invoke void @"_ZN82_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_core..host..ValueDenier$GT$10deny_value17he4bac4c19f23b6b2E"(ptr sret([24 x i8]) align 8 %_4.i, ptr align 1 %storage, ptr align 1 @alloc_5308da89c19e668df51438c22b3f6ac1, i64 10)
+          to label %.noexc unwind label %cleanup5
+
+.noexc:                                           ; preds = %bb2.i6
+  %39 = load i64, ptr %_4.i, align 8
+  %40 = icmp eq i64 %39, -9223372036854775808
+  %_7.i = select i1 %40, i64 0, i64 1
+  %41 = trunc nuw i64 %_7.i to i1
+  br i1 %41, label %bb4.i, label %bb5.i
 
 bb1.i:                                            ; preds = %bb26
   store i64 2, ptr %_34, align 8
   br label %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
 
-bb3.i:                                            ; preds = %bb26
-  invoke void @"_ZN82_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_core..host..ValueDenier$GT$10deny_value17he4bac4c19f23b6b2E"(ptr sret([24 x i8]) align 8 %_4.i, ptr align 1 %storage, ptr align 1 @alloc_5308da89c19e668df51438c22b3f6ac1, i64 10)
-          to label %.noexc unwind label %cleanup5
-
-.noexc:                                           ; preds = %bb3.i
-  %39 = load i64, ptr %_4.i, align 8
-  %40 = icmp eq i64 %39, -9223372036854775808
-  %_7.i = select i1 %40, i64 0, i64 1
-  %41 = trunc nuw i64 %_7.i to i1
-  br i1 %41, label %bb5.i, label %bb6.i
-
-bb2.i6:                                           ; preds = %bb26
-  invoke void @"_ZN82_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_core..host..ValueDenier$GT$10deny_value17he4bac4c19f23b6b2E"(ptr sret([24 x i8]) align 8 %_22.i, ptr align 1 %storage, ptr align 1 @alloc_275fb343856aab4b495957d4927854a6, i64 14)
-          to label %.noexc7 unwind label %cleanup5
-
-.noexc7:                                          ; preds = %bb2.i6
-  %42 = load i64, ptr %_22.i, align 8
-  %43 = icmp eq i64 %42, -9223372036854775808
-  %_25.i = select i1 %43, i64 0, i64 1
-  %44 = trunc nuw i64 %_25.i to i1
-  br i1 %44, label %bb18.i, label %bb19.i
-
-bb5.i:                                            ; preds = %.noexc
+bb4.i:                                            ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %err.i, ptr align 8 %_4.i, i64 24, i1 false)
-  %45 = getelementptr inbounds i8, ptr %_9.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %45, ptr align 8 %err.i, i64 24, i1 false)
+  %42 = getelementptr inbounds i8, ptr %_9.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr align 8 %err.i, i64 24, i1 false)
   store i64 1, ptr %_9.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_34, ptr align 8 %_9.i, i64 32, i1 false)
   br label %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
 
-bb6.i:                                            ; preds = %.noexc
+bb5.i:                                            ; preds = %.noexc
   invoke void @"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h646ba82ba4133935E"(ptr align 8 %_4.i)
+          to label %.noexc7 unwind label %cleanup5
+
+.noexc7:                                          ; preds = %bb5.i
+  invoke void @_ZN15alloy_sol_types5types2ty7SolType17abi_decode_params17h3931481044ee1636E(ptr sret([48 x i8]) align 8 %_10.i, ptr align 1 %_36.0, i64 %_36.1, i1 zeroext true)
           to label %.noexc8 unwind label %cleanup5
 
-.noexc8:                                          ; preds = %bb6.i
-  invoke void @_ZN15alloy_sol_types5types2ty7SolType17abi_decode_params17h946b29727e38f998E(ptr sret([48 x i8]) align 8 %_10.i, ptr align 1 %_36.0, i64 %_36.1, i1 zeroext true)
-          to label %.noexc9 unwind label %cleanup5
+.noexc8:                                          ; preds = %.noexc7
+  %43 = load i64, ptr %_10.i, align 8
+  %44 = icmp eq i64 %43, -9223372036854775798
+  %_11.i = select i1 %44, i64 0, i64 1
+  %45 = trunc nuw i64 %_11.i to i1
+  br i1 %45, label %bb9.i, label %bb10.i
 
-.noexc9:                                          ; preds = %.noexc8
-  %46 = load i64, ptr %_10.i, align 8
-  %47 = icmp eq i64 %46, -9223372036854775798
-  %_11.i = select i1 %47, i64 0, i64 1
-  %48 = trunc nuw i64 %_11.i to i1
-  br i1 %48, label %bb10.i, label %bb11.i
-
-bb10.i:                                           ; preds = %.noexc9
+bb9.i:                                            ; preds = %.noexc8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %err1.i, ptr align 8 %_10.i, i64 48, i1 false)
   invoke void @_ZN10stylus_sdk3abi8internal26failed_to_decode_arguments17hf1229c30ee12df8cE(ptr align 8 %err1.i)
+          to label %.noexc9 unwind label %cleanup5
+
+.noexc9:                                          ; preds = %bb9.i
+  invoke void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hb05ce2a4f39f91ebE"(ptr sret([24 x i8]) align 8 %_16.i)
           to label %.noexc10 unwind label %cleanup5
 
-.noexc10:                                         ; preds = %bb10.i
-  invoke void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hb05ce2a4f39f91ebE"(ptr sret([24 x i8]) align 8 %_16.i)
-          to label %.noexc11 unwind label %cleanup5
-
-.noexc11:                                         ; preds = %.noexc10
-  %49 = getelementptr inbounds i8, ptr %_15.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr align 8 %_16.i, i64 24, i1 false)
+.noexc10:                                         ; preds = %.noexc9
+  %46 = getelementptr inbounds i8, ptr %_15.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr align 8 %_16.i, i64 24, i1 false)
   store i64 1, ptr %_15.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_34, ptr align 8 %_15.i, i64 32, i1 false)
   br label %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
 
-bb11.i:                                           ; preds = %.noexc9
-  %50 = getelementptr inbounds i8, ptr %_10.i, i64 8
-  %args.i = load i32, ptr %50, align 8
-  store i32 %args.i, ptr %args.dbg.spill.i, align 4
-  %_19.i12 = invoke align 1 ptr @"_ZN54_$LT$T$u20$as$u20$core..borrow..BorrowMut$LT$T$GT$$GT$10borrow_mut17hda02cb68acb788a4E"(ptr align 1 %storage)
+bb10.i:                                           ; preds = %.noexc8
+  %47 = getelementptr inbounds i8, ptr %_10.i, i64 8
+  %args.0.i = load i32, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = load i8, ptr %48, align 4
+  %args.1.i = trunc nuw i8 %49 to i1
+  store i32 %args.0.i, ptr %args.dbg.spill.i, align 4
+  %50 = getelementptr inbounds i8, ptr %args.dbg.spill.i, i64 4
+  %51 = zext i1 %args.1.i to i8
+  store i8 %51, ptr %50, align 4
+  %_19.i11 = invoke align 1 ptr @"_ZN54_$LT$T$u20$as$u20$core..borrow..BorrowMut$LT$T$GT$$GT$10borrow_mut17hda02cb68acb788a4E"(ptr align 1 %storage)
           to label %_19.i.noexc unwind label %cleanup5
 
-_19.i.noexc:                                      ; preds = %bb11.i
-  %result.i13 = invoke zeroext i1 @_ZN15stylus_contract14SimpleContract10mock_check17he714e8cacb6b817bE(ptr align 1 %_19.i12, i32 %args.i)
+_19.i.noexc:                                      ; preds = %bb10.i
+  %result.i12 = invoke zeroext i1 @_ZN15stylus_contract14SimpleContract10mock_check17hbe25febe28086a03E(ptr align 1 %_19.i11, i32 %args.0.i, i1 zeroext %args.1.i)
           to label %result.i.noexc unwind label %cleanup5
 
 result.i.noexc:                                   ; preds = %_19.i.noexc
-  %51 = zext i1 %result.i13 to i8
-  store i8 %51, ptr %result.dbg.spill.i, align 1
-  %52 = zext i1 %result.i13 to i8
-  store i8 %52, ptr %self.i8.i, align 1
-  invoke void @_ZN15alloy_sol_types5types2ty7SolType10abi_encode17hcad6ed0507128930E(ptr sret([24 x i8]) align 8 %_2.i7.i, ptr align 1 %self.i8.i)
-          to label %"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit10.i" unwind label %cleanup.i9.i
-
-cleanup.i9.i:                                     ; preds = %result.i.noexc
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store ptr %54, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %55, ptr %56, align 8
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %59 = load i32, ptr %58, align 8
-  %60 = insertvalue { ptr, i32 } poison, ptr %57, 0
-  %61 = insertvalue { ptr, i32 } %60, i32 %59, 1
-  br label %cleanup5.body14
-
-"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit10.i": ; preds = %result.i.noexc
-  %62 = getelementptr inbounds i8, ptr %_21.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %62, ptr align 8 %_2.i7.i, i64 24, i1 false)
-  store i64 0, ptr %_21.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_34, ptr align 8 %_21.i, i64 32, i1 false)
-  br label %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
-
-bb18.i:                                           ; preds = %.noexc7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %err2.i, ptr align 8 %_22.i, i64 24, i1 false)
-  %63 = getelementptr inbounds i8, ptr %_27.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 8 %err2.i, i64 24, i1 false)
-  store i64 1, ptr %_27.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_34, ptr align 8 %_27.i, i64 32, i1 false)
-  br label %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
-
-bb19.i:                                           ; preds = %.noexc7
-  invoke void @"_ZN4core3ptr85drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h646ba82ba4133935E"(ptr align 8 %_22.i)
-          to label %.noexc16 unwind label %cleanup5
-
-.noexc16:                                         ; preds = %bb19.i
-  invoke void @_ZN15alloy_sol_types5types2ty7SolType17abi_decode_params17h3931481044ee1636E(ptr sret([48 x i8]) align 8 %_28.i, ptr align 1 %_36.0, i64 %_36.1, i1 zeroext true)
-          to label %.noexc17 unwind label %cleanup5
-
-.noexc17:                                         ; preds = %.noexc16
-  %64 = load i64, ptr %_28.i, align 8
-  %65 = icmp eq i64 %64, -9223372036854775798
-  %_29.i = select i1 %65, i64 0, i64 1
-  %66 = trunc nuw i64 %_29.i to i1
-  br i1 %66, label %bb22.i, label %bb23.i
-
-bb22.i:                                           ; preds = %.noexc17
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %err3.i, ptr align 8 %_28.i, i64 48, i1 false)
-  invoke void @_ZN10stylus_sdk3abi8internal26failed_to_decode_arguments17hf1229c30ee12df8cE(ptr align 8 %err3.i)
-          to label %.noexc18 unwind label %cleanup5
-
-.noexc18:                                         ; preds = %bb22.i
-  invoke void @"_ZN5alloc3vec12Vec$LT$T$GT$3new17hb05ce2a4f39f91ebE"(ptr sret([24 x i8]) align 8 %_34.i)
-          to label %.noexc19 unwind label %cleanup5
-
-.noexc19:                                         ; preds = %.noexc18
-  %67 = getelementptr inbounds i8, ptr %_33.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr align 8 %_34.i, i64 24, i1 false)
-  store i64 1, ptr %_33.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_34, ptr align 8 %_33.i, i64 32, i1 false)
-  br label %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
-
-bb23.i:                                           ; preds = %.noexc17
-  %68 = getelementptr inbounds i8, ptr %_28.i, i64 8
-  %args.0.i = load i32, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
-  %70 = load i8, ptr %69, align 4
-  %args.1.i = trunc nuw i8 %70 to i1
-  store i32 %args.0.i, ptr %args.dbg.spill4.i, align 4
-  %71 = getelementptr inbounds i8, ptr %args.dbg.spill4.i, i64 4
-  %72 = zext i1 %args.1.i to i8
-  store i8 %72, ptr %71, align 4
-  %_37.i20 = invoke align 1 ptr @"_ZN54_$LT$T$u20$as$u20$core..borrow..BorrowMut$LT$T$GT$$GT$10borrow_mut17hda02cb68acb788a4E"(ptr align 1 %storage)
-          to label %_37.i.noexc unwind label %cleanup5
-
-_37.i.noexc:                                      ; preds = %bb23.i
-  %result5.i21 = invoke zeroext i1 @_ZN15stylus_contract14SimpleContract14advanced_check17h3d70cabb99fbfd31E(ptr align 1 %_37.i20, i32 %args.0.i, i1 zeroext %args.1.i)
-          to label %result5.i.noexc unwind label %cleanup5
-
-result5.i.noexc:                                  ; preds = %_37.i.noexc
-  %73 = zext i1 %result5.i21 to i8
-  store i8 %73, ptr %result.dbg.spill6.i, align 1
-  %74 = zext i1 %result5.i21 to i8
-  store i8 %74, ptr %self.i.i, align 1
+  %52 = zext i1 %result.i12 to i8
+  store i8 %52, ptr %result.dbg.spill.i, align 1
+  %53 = zext i1 %result.i12 to i8
+  store i8 %53, ptr %self.i.i, align 1
   invoke void @_ZN15alloy_sol_types5types2ty7SolType10abi_encode17hcad6ed0507128930E(ptr sret([24 x i8]) align 8 %_2.i.i, ptr align 1 %self.i.i)
           to label %"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit.i" unwind label %cleanup.i.i
 
-cleanup.i.i:                                      ; preds = %result5.i.noexc
-  %75 = landingpad { ptr, i32 }
+cleanup.i.i:                                      ; preds = %result.i.noexc
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %76 = extractvalue { ptr, i32 } %75, 0
-  %77 = extractvalue { ptr, i32 } %75, 1
-  store ptr %76, ptr %1, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %77, ptr %78, align 8
-  %79 = load ptr, ptr %1, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
-  %81 = load i32, ptr %80, align 8
-  %82 = insertvalue { ptr, i32 } poison, ptr %79, 0
-  %83 = insertvalue { ptr, i32 } %82, i32 %81, 1
-  br label %cleanup5.body14
+  %55 = extractvalue { ptr, i32 } %54, 0
+  %56 = extractvalue { ptr, i32 } %54, 1
+  store ptr %55, ptr %0, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %56, ptr %57, align 8
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = insertvalue { ptr, i32 } poison, ptr %58, 0
+  %62 = insertvalue { ptr, i32 } %61, i32 %60, 1
+  br label %cleanup5.body13
 
-"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit.i": ; preds = %result5.i.noexc
-  %84 = getelementptr inbounds i8, ptr %_40.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %84, ptr align 8 %_2.i.i, i64 24, i1 false)
-  store i64 0, ptr %_40.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_34, ptr align 8 %_40.i, i64 32, i1 false)
+"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit.i": ; preds = %result.i.noexc
+  %63 = getelementptr inbounds i8, ptr %_22.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %63, ptr align 8 %_2.i.i, i64 24, i1 false)
+  store i64 0, ptr %_22.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_34, ptr align 8 %_22.i, i64 32, i1 false)
   br label %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
 
-"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit": ; preds = %"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit.i", %.noexc19, %bb18.i, %"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit10.i", %.noexc11, %bb5.i, %bb1.i
+"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit": ; preds = %"_ZN68_$LT$T$u20$as$u20$stylus_sdk..abi..internal..EncodableReturnType$GT$6encode17ha4b1f124cceb42c5E.exit.i", %.noexc10, %bb4.i, %bb1.i
   br label %bb27
 
 bb27:                                             ; preds = %"_ZN84_$LT$stylus_contract..SimpleContract$u20$as$u20$stylus_sdk..abi..Router$LT$S$GT$$GT$5route17h2c0d35bc63706276E.exit"
-  %85 = load i64, ptr %_34, align 8
-  %86 = icmp eq i64 %85, 2
-  %_39 = select i1 %86, i64 0, i64 1
-  %87 = trunc nuw i64 %_39 to i1
-  br i1 %87, label %bb28, label %bb29
+  %64 = load i64, ptr %_34, align 8
+  %65 = icmp eq i64 %64, 2
+  %_39 = select i1 %65, i64 0, i64 1
+  %66 = trunc nuw i64 %_39 to i1
+  br i1 %66, label %bb28, label %bb29
 
 bb28:                                             ; preds = %bb27
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %res3, ptr align 8 %_34, i64 32, i1 false)
@@ -527,21 +416,21 @@ bb38:                                             ; preds = %bb12, %bb9, %bb45, 
   br label %bb39
 
 bb21:                                             ; preds = %bb20
-  %_29.0 = extractvalue { ptr, i64 } %37, 0
-  %_29.1 = extractvalue { ptr, i64 } %37, 1
-  store ptr %storage, ptr %storage.dbg.spill.i28, align 8
-  store ptr %_29.0, ptr %input.dbg.spill.i27, align 8
-  %88 = getelementptr inbounds i8, ptr %input.dbg.spill.i27, i64 8
-  store i64 %_29.1, ptr %88, align 8
+  %_29.0 = extractvalue { ptr, i64 } %36, 0
+  %_29.1 = extractvalue { ptr, i64 } %36, 1
+  store ptr %storage, ptr %storage.dbg.spill.i21, align 8
+  store ptr %_29.0, ptr %input.dbg.spill.i20, align 8
+  %67 = getelementptr inbounds i8, ptr %input.dbg.spill.i20, i64 8
+  store i64 %_29.1, ptr %67, align 8
   store i64 2, ptr %_27, align 8
   br label %bb22
 
 bb22:                                             ; preds = %bb21
-  %89 = load i64, ptr %_27, align 8
-  %90 = icmp eq i64 %89, 2
-  %_32 = select i1 %90, i64 0, i64 1
-  %91 = trunc nuw i64 %_32 to i1
-  br i1 %91, label %bb23, label %bb24
+  %68 = load i64, ptr %_27, align 8
+  %69 = icmp eq i64 %68, 2
+  %_32 = select i1 %69, i64 0, i64 1
+  %70 = trunc nuw i64 %_32 to i1
+  br i1 %70, label %bb23, label %bb24
 
 bb23:                                             ; preds = %bb22
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %res2, ptr align 8 %_27, i64 32, i1 false)
@@ -553,21 +442,21 @@ bb24:                                             ; preds = %bb22
           to label %bb30 unwind label %cleanup5
 
 bb31:                                             ; preds = %bb30
-  %_43.0 = extractvalue { ptr, i64 } %18, 0
-  %_43.1 = extractvalue { ptr, i64 } %18, 1
-  store ptr %storage, ptr %storage.dbg.spill.i25, align 8
-  store ptr %_43.0, ptr %input.dbg.spill.i24, align 8
-  %92 = getelementptr inbounds i8, ptr %input.dbg.spill.i24, i64 8
-  store i64 %_43.1, ptr %92, align 8
+  %_43.0 = extractvalue { ptr, i64 } %17, 0
+  %_43.1 = extractvalue { ptr, i64 } %17, 1
+  store ptr %storage, ptr %storage.dbg.spill.i18, align 8
+  store ptr %_43.0, ptr %input.dbg.spill.i17, align 8
+  %71 = getelementptr inbounds i8, ptr %input.dbg.spill.i17, i64 8
+  store i64 %_43.1, ptr %71, align 8
   store i64 2, ptr %_41, align 8
   br label %bb32
 
 bb32:                                             ; preds = %bb31
-  %93 = load i64, ptr %_41, align 8
-  %94 = icmp eq i64 %93, 2
-  %_45 = select i1 %94, i64 0, i64 1
-  %95 = trunc nuw i64 %_45 to i1
-  br i1 %95, label %bb33, label %bb34
+  %72 = load i64, ptr %_41, align 8
+  %73 = icmp eq i64 %72, 2
+  %_45 = select i1 %73, i64 0, i64 1
+  %74 = trunc nuw i64 %_45 to i1
+  br i1 %74, label %bb33, label %bb34
 
 bb33:                                             ; preds = %bb32
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %res4, ptr align 8 %_41, i64 32, i1 false)
@@ -583,8 +472,8 @@ bb35:                                             ; preds = %bb34
           to label %bb36 unwind label %cleanup5
 
 bb36:                                             ; preds = %bb35
-  %96 = getelementptr inbounds i8, ptr %_0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %96, ptr align 8 %_47, i64 24, i1 false)
+  %75 = getelementptr inbounds i8, ptr %_0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %_47, i64 24, i1 false)
   store i64 1, ptr %_0, align 8
   br label %bb37
 
@@ -596,11 +485,11 @@ bb40:                                             ; preds = %bb39, %bb37
   ret void
 
 bb4:                                              ; preds = %bb3
-  %97 = load i64, ptr %_6, align 8
-  %98 = icmp eq i64 %97, -9223372036854775807
-  %_8 = select i1 %98, i64 0, i64 1
-  %99 = trunc nuw i64 %_8 to i1
-  br i1 %99, label %bb5, label %bb6
+  %76 = load i64, ptr %_6, align 8
+  %77 = icmp eq i64 %76, -9223372036854775807
+  %_8 = select i1 %77, i64 0, i64 1
+  %78 = trunc nuw i64 %_8 to i1
+  br i1 %78, label %bb5, label %bb6
 
 bb5:                                              ; preds = %bb4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %res, ptr align 8 %_6, i64 24, i1 false)
@@ -615,19 +504,19 @@ bb45:                                             ; preds = %bb5
   br label %bb38
 
 bb7:                                              ; preds = %bb6
-  store ptr %storage, ptr %storage.dbg.spill.i23, align 8
-  store ptr inttoptr (i64 1 to ptr), ptr %input.dbg.spill.i22, align 8
-  %100 = getelementptr inbounds i8, ptr %input.dbg.spill.i22, i64 8
-  store i64 0, ptr %100, align 8
+  store ptr %storage, ptr %storage.dbg.spill.i16, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %input.dbg.spill.i15, align 8
+  %79 = getelementptr inbounds i8, ptr %input.dbg.spill.i15, i64 8
+  store i64 0, ptr %79, align 8
   store i64 2, ptr %_10, align 8
   br label %bb8
 
 bb8:                                              ; preds = %bb7
-  %101 = load i64, ptr %_10, align 8
-  %102 = icmp eq i64 %101, 2
-  %_14 = select i1 %102, i64 0, i64 1
-  %103 = trunc nuw i64 %_14 to i1
-  br i1 %103, label %bb9, label %bb10
+  %80 = load i64, ptr %_10, align 8
+  %81 = icmp eq i64 %80, 2
+  %_14 = select i1 %81, i64 0, i64 1
+  %82 = trunc nuw i64 %_14 to i1
+  br i1 %82, label %bb9, label %bb10
 
 bb9:                                              ; preds = %bb8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %res1, ptr align 8 %_10, i64 32, i1 false)
@@ -643,8 +532,8 @@ bb11:                                             ; preds = %bb10
           to label %bb12 unwind label %cleanup5
 
 bb12:                                             ; preds = %bb11
-  %104 = getelementptr inbounds i8, ptr %_0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %104, ptr align 8 %_16, i64 24, i1 false)
+  %83 = getelementptr inbounds i8, ptr %_0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %83, ptr align 8 %_16, i64 24, i1 false)
   store i64 1, ptr %_0, align 8
   br label %bb38
 
@@ -656,20 +545,20 @@ bb44:                                             ; No predecessors!
   unreachable
 
 terminate:                                        ; preds = %bb42
-  %105 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  %106 = extractvalue { ptr, i32 } %105, 0
-  %107 = extractvalue { ptr, i32 } %105, 1
+  %85 = extractvalue { ptr, i32 } %84, 0
+  %86 = extractvalue { ptr, i32 } %84, 1
   call void @_ZN4core9panicking16panic_in_cleanup17hd39cfd9b63d9c6c3E() #13
   unreachable
 
 bb43:                                             ; preds = %bb42
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds i8, ptr %8, i64 8
-  %110 = load i32, ptr %109, align 8
-  %111 = insertvalue { ptr, i32 } poison, ptr %108, 0
-  %112 = insertvalue { ptr, i32 } %111, i32 %110, 1
-  resume { ptr, i32 } %112
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %89 = load i32, ptr %88, align 8
+  %90 = insertvalue { ptr, i32 } poison, ptr %87, 0
+  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
+  resume { ptr, i32 } %91
 }
 
 ; Function Attrs: inlinehint uwtable
@@ -764,17 +653,6 @@ unreachable.i:                                    ; preds = %bb2.i
   %24 = load i32, ptr %2, align 4
   %_0 = call i32 @"_ZN4core3num21_$LT$impl$u20$u32$GT$13from_be_bytes17h2308df79fb014afaE"(i32 %24)
   ret i32 %_0
-}
-
-; Function Attrs: inlinehint uwtable
-define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0179a5b7cc1424fbE"(ptr sret([48 x i8]) align 8 %_0, ptr align 8 %residual, ptr align 8 %0) unnamed_addr #0 {
-start:
-  %_3 = alloca [48 x i8], align 8
-  %e = alloca [48 x i8], align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %e, ptr align 8 %residual, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_3, ptr align 8 %e, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_0, ptr align 8 %_3, i64 48, i1 false)
-  ret void
 }
 
 ; Function Attrs: inlinehint uwtable
@@ -1426,106 +1304,12 @@ start:
 }
 
 ; Function Attrs: inlinehint uwtable
-define zeroext i1 @_ZN15alloy_sol_types5types2ty23validate_and_detokenize17h95e13594c9d35825E(i1 zeroext %validate) unnamed_addr #0 {
-start:
-  %validate.dbg.spill = alloca [1 x i8], align 1
-  %0 = zext i1 %validate to i8
-  store i8 %0, ptr %validate.dbg.spill, align 1
-  ret i1 %validate
-}
-
-; Function Attrs: inlinehint uwtable
 define zeroext i1 @_ZN15alloy_sol_types5types2ty23validate_and_detokenize17ha5c4387cee5bc5a5E(i1 zeroext %validate) unnamed_addr #0 {
 start:
   %validate.dbg.spill = alloca [1 x i8], align 1
   %0 = zext i1 %validate to i8
   store i8 %0, ptr %validate.dbg.spill, align 1
   ret i1 %validate
-}
-
-; Function Attrs: inlinehint uwtable
-define void @"_ZN15alloy_sol_types5types2ty23validate_and_detokenize28_$u7b$$u7b$closure$u7d$$u7d$17h8438d70efab66c9eE"(ptr sret([48 x i8]) align 8 %_0, i1 zeroext %_1, ptr align 1 %token) unnamed_addr #0 personality ptr @rust_eh_personality {
-start:
-  %0 = alloca [16 x i8], align 8
-  %val.dbg.spill = alloca [0 x i8], align 1
-  %_1.dbg.spill = alloca [1 x i8], align 1
-  %_11 = alloca [1 x i8], align 1
-  %_10 = alloca [32 x i8], align 1
-  %residual = alloca [48 x i8], align 8
-  %_5 = alloca [48 x i8], align 8
-  %_4 = alloca [48 x i8], align 8
-  %1 = zext i1 %_1 to i8
-  store i8 %1, ptr %_1.dbg.spill, align 1
-  store i8 0, ptr %_11, align 1
-  store i8 1, ptr %_11, align 1
-  br i1 %_1, label %bb1, label %bb7
-
-bb7:                                              ; preds = %bb3, %start
-  store i8 0, ptr %_11, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_10, ptr align 1 %token, i64 32, i1 false)
-  %_9 = invoke i32 @"_ZN15alloy_sol_types5types9data_type79_$LT$impl$u20$alloy_sol_types..types..ty..SolType$u20$for$u20$$LP$T1$C$$RP$$GT$10detokenize17h0423867841b4c6cfE"(ptr align 1 %_10)
-          to label %bb8 unwind label %cleanup
-
-bb1:                                              ; preds = %start
-  invoke void @_ZN15alloy_sol_types5types2ty7SolType10type_check17h64049d88eacb3efaE(ptr sret([48 x i8]) align 8 %_5, ptr align 1 %token)
-          to label %bb2 unwind label %cleanup
-
-bb12:                                             ; preds = %cleanup
-  %2 = load i8, ptr %_11, align 1
-  %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %bb11, label %bb10
-
-cleanup:                                          ; preds = %bb5, %bb2, %bb1, %bb7
-  %4 = landingpad { ptr, i32 }
-          cleanup
-  %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = extractvalue { ptr, i32 } %4, 1
-  store ptr %5, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %6, ptr %7, align 8
-  br label %bb12
-
-bb2:                                              ; preds = %bb1
-  invoke void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4dacdd38543812deE"(ptr sret([48 x i8]) align 8 %_4, ptr align 8 %_5)
-          to label %bb3 unwind label %cleanup
-
-bb3:                                              ; preds = %bb2
-  %8 = load i64, ptr %_4, align 8
-  %9 = icmp eq i64 %8, -9223372036854775798
-  %_7 = select i1 %9, i64 0, i64 1
-  %10 = trunc nuw i64 %_7 to i1
-  br i1 %10, label %bb5, label %bb7
-
-bb5:                                              ; preds = %bb3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %residual, ptr align 8 %_4, i64 48, i1 false)
-  invoke void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0179a5b7cc1424fbE"(ptr sret([48 x i8]) align 8 %_0, ptr align 8 %residual, ptr align 8 @alloc_13b013f2f7fee66d8922b9d3594b8f10)
-          to label %bb6 unwind label %cleanup
-
-bb8:                                              ; preds = %bb7
-  %11 = getelementptr inbounds i8, ptr %_0, i64 8
-  store i32 %_9, ptr %11, align 8
-  store i64 -9223372036854775798, ptr %_0, align 8
-  br label %bb9
-
-bb9:                                              ; preds = %bb6, %bb8
-  ret void
-
-bb6:                                              ; preds = %bb5
-  br label %bb9
-
-bb4:                                              ; No predecessors!
-  unreachable
-
-bb10:                                             ; preds = %bb11, %bb12
-  %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = insertvalue { ptr, i32 } poison, ptr %12, 0
-  %16 = insertvalue { ptr, i32 } %15, i32 %14, 1
-  resume { ptr, i32 } %16
-
-bb11:                                             ; preds = %bb12
-  br label %bb10
 }
 
 ; Function Attrs: inlinehint uwtable
@@ -1674,28 +1458,6 @@ bb2:                                              ; preds = %_ZN15alloy_sol_type
 }
 
 ; Function Attrs: inlinehint uwtable
-define void @_ZN15alloy_sol_types5types2ty7SolType10type_check17h64049d88eacb3efaE(ptr sret([48 x i8]) align 8 %_0, ptr align 1 %token) unnamed_addr #0 {
-start:
-  %token.dbg.spill = alloca [8 x i8], align 8
-  %_3 = alloca [48 x i8], align 8
-  store ptr %token, ptr %token.dbg.spill, align 8
-  %_2 = call zeroext i1 @"_ZN15alloy_sol_types5types9data_type79_$LT$impl$u20$alloy_sol_types..types..ty..SolType$u20$for$u20$$LP$T1$C$$RP$$GT$11valid_token17h1a3fa9e9983957eaE"(ptr align 1 %token)
-  br i1 %_2, label %bb2, label %bb3
-
-bb3:                                              ; preds = %start
-  call void @_ZN15alloy_sol_types6errors5Error21type_check_fail_token17h6e4cffdb743915b6E(ptr sret([48 x i8]) align 8 %_3, ptr align 1 %token)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_0, ptr align 8 %_3, i64 48, i1 false)
-  br label %bb5
-
-bb2:                                              ; preds = %start
-  store i64 -9223372036854775798, ptr %_0, align 8
-  br label %bb5
-
-bb5:                                              ; preds = %bb2, %bb3
-  ret void
-}
-
-; Function Attrs: inlinehint uwtable
 define void @_ZN15alloy_sol_types5types2ty7SolType10type_check17hd1920832c817b278E(ptr sret([48 x i8]) align 8 %_0, ptr align 1 %token) unnamed_addr #0 {
 start:
   %token.dbg.spill = alloca [8 x i8], align 8
@@ -1791,79 +1553,6 @@ terminate:                                        ; preds = %bb5
 }
 
 ; Function Attrs: inlinehint uwtable
-define void @_ZN15alloy_sol_types5types2ty7SolType17abi_decode_params17h946b29727e38f998E(ptr sret([48 x i8]) align 8 %_0, ptr align 1 %data.0, i64 %data.1, i1 zeroext %validate) unnamed_addr #0 personality ptr @rust_eh_personality {
-start:
-  %decode.dbg.spill.i = alloca [8 x i8], align 8
-  %validate.dbg.spill.i = alloca [1 x i8], align 1
-  %data.dbg.spill.i = alloca [16 x i8], align 8
-  %0 = alloca [16 x i8], align 8
-  %validate.dbg.spill = alloca [1 x i8], align 1
-  %data.dbg.spill = alloca [16 x i8], align 8
-  %_5 = alloca [1 x i8], align 1
-  %_3 = alloca [48 x i8], align 8
-  store ptr %data.0, ptr %data.dbg.spill, align 8
-  %1 = getelementptr inbounds i8, ptr %data.dbg.spill, i64 8
-  store i64 %data.1, ptr %1, align 8
-  %2 = zext i1 %validate to i8
-  store i8 %2, ptr %validate.dbg.spill, align 1
-  store i8 0, ptr %_5, align 1
-  store i8 1, ptr %_5, align 1
-  store ptr %data.0, ptr %data.dbg.spill.i, align 8
-  %3 = getelementptr inbounds i8, ptr %data.dbg.spill.i, i64 8
-  store i64 %data.1, ptr %3, align 8
-  %4 = zext i1 %validate to i8
-  store i8 %4, ptr %validate.dbg.spill.i, align 1
-  store ptr @_ZN15alloy_sol_types3abi7decoder15decode_sequence17h633b8bab71726503E, ptr %decode.dbg.spill.i, align 8
-  call void @_ZN15alloy_sol_types3abi7decoder15decode_sequence17h633b8bab71726503E(ptr sret([48 x i8]) align 8 %_3, ptr align 1 %data.0, i64 %data.1, i1 zeroext %validate)
-  %_4 = invoke zeroext i1 @_ZN15alloy_sol_types5types2ty23validate_and_detokenize17h95e13594c9d35825E(i1 zeroext %validate)
-          to label %bb2 unwind label %cleanup
-
-bb6:                                              ; preds = %cleanup
-  %5 = load i8, ptr %_5, align 1
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %bb5, label %bb4
-
-cleanup:                                          ; preds = %bb2, %start
-  %7 = landingpad { ptr, i32 }
-          cleanup
-  %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = extractvalue { ptr, i32 } %7, 1
-  store ptr %8, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %9, ptr %10, align 8
-  br label %bb6
-
-bb2:                                              ; preds = %start
-  store i8 0, ptr %_5, align 1
-  invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$8and_then17hd74cdbf6876113feE"(ptr sret([48 x i8]) align 8 %_0, ptr align 8 %_3, i1 zeroext %_4)
-          to label %bb3 unwind label %cleanup
-
-bb3:                                              ; preds = %bb2
-  store i8 0, ptr %_5, align 1
-  ret void
-
-bb4:                                              ; preds = %bb5, %bb6
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = insertvalue { ptr, i32 } poison, ptr %11, 0
-  %15 = insertvalue { ptr, i32 } %14, i32 %13, 1
-  resume { ptr, i32 } %15
-
-bb5:                                              ; preds = %bb6
-  invoke void @"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$$LP$alloy_sol_types..abi..token..WordToken$C$$RP$$C$alloy_sol_types..errors..Error$GT$$GT$17h1c7a2591764cd77bE"(ptr align 8 %_3) #11
-          to label %bb4 unwind label %terminate
-
-terminate:                                        ; preds = %bb5
-  %16 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  %17 = extractvalue { ptr, i32 } %16, 0
-  %18 = extractvalue { ptr, i32 } %16, 1
-  call void @_ZN4core9panicking16panic_in_cleanup17hd39cfd9b63d9c6c3E() #13
-  unreachable
-}
-
-; Function Attrs: inlinehint uwtable
 define internal void @"_ZN15alloy_sol_types5types9data_type120_$LT$impl$u20$alloy_sol_types..private..SolTypeValue$LT$alloy_sol_types..types..data_type..Bool$GT$$u20$for$u20$bool$GT$13stv_to_tokens17h479028e1c9192bb7E"(ptr sret([32 x i8]) align 1 %_0, ptr align 1 %self) unnamed_addr #0 {
 start:
   %self.dbg.spill = alloca [8 x i8], align 8
@@ -1875,26 +1564,6 @@ start:
   call void @"_ZN16alloy_primitives4bits5fixed19FixedBytes$LT$_$GT$14with_last_byte17hb991bbcfe86f0d8fE"(ptr sret([32 x i8]) align 1 %_2, i8 %_3)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_0, ptr align 1 %_2, i64 32, i1 false)
   ret void
-}
-
-; Function Attrs: uwtable
-define i32 @"_ZN15alloy_sol_types5types9data_type79_$LT$impl$u20$alloy_sol_types..types..ty..SolType$u20$for$u20$$LP$T1$C$$RP$$GT$10detokenize17h0423867841b4c6cfE"(ptr align 1 %token) unnamed_addr #1 {
-start:
-  %T1 = alloca [32 x i8], align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %T1, ptr align 1 %token, i64 32, i1 false)
-  %_3 = call i32 @"_ZN104_$LT$alloy_sol_types..types..data_type..Uint$LT$_$GT$$u20$as$u20$alloy_sol_types..types..ty..SolType$GT$10detokenize17h5b6c3facfedd57d8E"(ptr align 1 %T1)
-  ret i32 %_3
-}
-
-; Function Attrs: uwtable
-define zeroext i1 @"_ZN15alloy_sol_types5types9data_type79_$LT$impl$u20$alloy_sol_types..types..ty..SolType$u20$for$u20$$LP$T1$C$$RP$$GT$11valid_token17h1a3fa9e9983957eaE"(ptr align 1 %token) unnamed_addr #1 {
-start:
-  %T1.dbg.spill = alloca [8 x i8], align 8
-  %token.dbg.spill = alloca [8 x i8], align 8
-  store ptr %token, ptr %token.dbg.spill, align 8
-  store ptr %token, ptr %T1.dbg.spill, align 8
-  %_0 = call zeroext i1 @"_ZN104_$LT$alloy_sol_types..types..data_type..Uint$LT$_$GT$$u20$as$u20$alloy_sol_types..types..ty..SolType$GT$11valid_token17h3867079cce1093b8E"(ptr align 1 %token)
-  ret i1 %_0
 }
 
 ; Function Attrs: uwtable
@@ -2081,74 +1750,6 @@ bb6:                                              ; preds = %bb5
   resume { ptr, i32 } %13
 }
 
-; Function Attrs: cold uwtable
-define void @_ZN15alloy_sol_types6errors5Error21type_check_fail_token17h6e4cffdb743915b6E(ptr sret([48 x i8]) align 8 %_0, ptr align 1 %token) unnamed_addr #2 personality ptr @rust_eh_personality {
-start:
-  %self.dbg.spill.i = alloca [8 x i8], align 8
-  %s.dbg.spill.i.i = alloca [8 x i8], align 8
-  %token.dbg.spill.i = alloca [8 x i8], align 8
-  %0 = alloca [16 x i8], align 8
-  %token.dbg.spill = alloca [8 x i8], align 8
-  %_4 = alloca [24 x i8], align 8
-  store ptr %token, ptr %token.dbg.spill, align 8
-  store ptr %token, ptr %token.dbg.spill.i, align 8
-  store ptr %token, ptr %s.dbg.spill.i.i, align 8
-  store ptr %token, ptr %self.dbg.spill.i, align 8
-  %_5.i.i = ptrtoint ptr %token to i64
-  %_6.i.i = icmp eq i64 %_5.i.i, 0
-  %_8.i.i = xor i1 %_6.i.i, true
-  br i1 %_8.i.i, label %_ZN15alloy_sol_types3abi7encoder6encode17h8ac0d92cef69993fE.exit, label %panic.i.i
-
-panic.i.i:                                        ; preds = %start
-  call void @_ZN4core9panicking30panic_null_pointer_dereference17h876d13db2aeb73efE(ptr align 8 @alloc_e2bb4cc0837ed6deadf93da62a2a71d2) #14
-  unreachable
-
-_ZN15alloy_sol_types3abi7encoder6encode17h8ac0d92cef69993fE.exit: ; preds = %start
-  call void @_ZN15alloy_sol_types3abi7encoder15encode_sequence17hd285dc940dbc2e64E(ptr sret([24 x i8]) align 8 %_4, ptr align 1 %token)
-  %1 = invoke { ptr, i64 } @"_ZN72_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h25c23094de5b4a85E"(ptr align 8 %_4)
-          to label %bb2 unwind label %cleanup
-
-bb5:                                              ; preds = %cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h60a59924b981dda9E"(ptr align 8 %_4) #11
-          to label %bb6 unwind label %terminate
-
-cleanup:                                          ; preds = %bb2, %_ZN15alloy_sol_types3abi7encoder6encode17h8ac0d92cef69993fE.exit
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  %3 = extractvalue { ptr, i32 } %2, 0
-  %4 = extractvalue { ptr, i32 } %2, 1
-  store ptr %3, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %4, ptr %5, align 8
-  br label %bb5
-
-bb2:                                              ; preds = %_ZN15alloy_sol_types3abi7encoder6encode17h8ac0d92cef69993fE.exit
-  %_2.0 = extractvalue { ptr, i64 } %1, 0
-  %_2.1 = extractvalue { ptr, i64 } %1, 1
-  invoke void @_ZN15alloy_sol_types6errors5Error15type_check_fail17h03a8300705072ed4E(ptr sret([48 x i8]) align 8 %_0, ptr align 1 %_2.0, i64 %_2.1, ptr align 1 @alloc_cde9f5c1f4cf2df8acc897a6cd9a712b, i64 8)
-          to label %bb3 unwind label %cleanup
-
-bb3:                                              ; preds = %bb2
-  call void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h60a59924b981dda9E"(ptr align 8 %_4)
-  ret void
-
-terminate:                                        ; preds = %bb5
-  %6 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  %7 = extractvalue { ptr, i32 } %6, 0
-  %8 = extractvalue { ptr, i32 } %6, 1
-  call void @_ZN4core9panicking16panic_in_cleanup17hd39cfd9b63d9c6c3E() #13
-  unreachable
-
-bb6:                                              ; preds = %bb5
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8
-  %12 = insertvalue { ptr, i32 } poison, ptr %9, 0
-  %13 = insertvalue { ptr, i32 } %12, i32 %11, 1
-  resume { ptr, i32 } %13
-}
-
 ; Function Attrs: inlinehint uwtable
 define void @"_ZN16alloy_primitives4bits5fixed19FixedBytes$LT$_$GT$14with_last_byte17hb991bbcfe86f0d8fE"(ptr sret([32 x i8]) align 1 %_0, i8 %x) unnamed_addr #0 {
 start:
@@ -2185,26 +1786,6 @@ start:
   store i32 %3, ptr %1, align 4
   %_0 = load i32, ptr %1, align 4
   ret i32 %_0
-}
-
-; Function Attrs: inlinehint nounwind uwtable
-define internal void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h7cbffd0bc5c7c334E"(i32 %lhs, i32 %rhs) unnamed_addr #3 {
-start:
-  %rhs.dbg.spill = alloca [4 x i8], align 4
-  %lhs.dbg.spill = alloca [4 x i8], align 4
-  store i32 %lhs, ptr %lhs.dbg.spill, align 4
-  store i32 %rhs, ptr %rhs.dbg.spill, align 4
-  %0 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %lhs, i32 %rhs)
-  %_5.0 = extractvalue { i32, i1 } %0, 0
-  %_5.1 = extractvalue { i32, i1 } %0, 1
-  br i1 %_5.1, label %bb1, label %bb2
-
-bb2:                                              ; preds = %start
-  ret void
-
-bb1:                                              ; preds = %start
-  call void @_ZN4core9panicking14panic_nounwind17hb89b2a5de4429251E(ptr align 1 @alloc_a6a0cc8156fe455996de64a9d05b1dfe, i64 184) #14
-  unreachable
 }
 
 ; Function Attrs: uwtable
@@ -2413,8 +1994,8 @@ bb9:                                              ; preds = %start
   store ptr @alloc_e92e94d0ff530782b571cfd99ec66aef, ptr %_11, align 8
   %5 = getelementptr inbounds i8, ptr %_11, i64 8
   store i64 1, ptr %5, align 8
-  %6 = load ptr, ptr @anon.b7c2725e621f0c23a77f5b895c93f166.0, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @anon.b7c2725e621f0c23a77f5b895c93f166.0, i64 8), align 8
+  %6 = load ptr, ptr @anon.4c2ddb19647d588107b2230d5484af4a.0, align 8
+  %7 = load i64, ptr getelementptr inbounds (i8, ptr @anon.4c2ddb19647d588107b2230d5484af4a.0, i64 8), align 8
   %8 = getelementptr inbounds i8, ptr %_11, i64 32
   store ptr %6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2545,40 +2126,6 @@ bb3:                                              ; preds = %start
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %t, ptr align 1 %5, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_6, ptr align 1 %t, i64 64, i1 false)
   call void @"_ZN15alloy_sol_types5types2ty23validate_and_detokenize28_$u7b$$u7b$closure$u7d$$u7d$17ha830184134ff1b56E"(ptr sret([48 x i8]) align 8 %_0, i1 zeroext %op, ptr align 1 %_6)
-  br label %bb5
-
-bb5:                                              ; preds = %bb3, %bb2
-  ret void
-
-bb1:                                              ; No predecessors!
-  unreachable
-}
-
-; Function Attrs: inlinehint uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$8and_then17hd74cdbf6876113feE"(ptr sret([48 x i8]) align 8 %_0, ptr align 8 %self, i1 zeroext %op) unnamed_addr #0 {
-start:
-  %op.dbg.spill = alloca [1 x i8], align 1
-  %e = alloca [48 x i8], align 8
-  %_6 = alloca [32 x i8], align 1
-  %t = alloca [32 x i8], align 1
-  %0 = zext i1 %op to i8
-  store i8 %0, ptr %op.dbg.spill, align 1
-  %1 = load i64, ptr %self, align 8
-  %2 = icmp eq i64 %1, -9223372036854775798
-  %_3 = select i1 %2, i64 0, i64 1
-  %3 = trunc nuw i64 %_3 to i1
-  br i1 %3, label %bb2, label %bb3
-
-bb2:                                              ; preds = %start
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %e, ptr align 8 %self, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_0, ptr align 8 %e, i64 48, i1 false)
-  br label %bb5
-
-bb3:                                              ; preds = %start
-  %4 = getelementptr inbounds i8, ptr %self, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %t, ptr align 8 %4, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %_6, ptr align 1 %t, i64 32, i1 false)
-  call void @"_ZN15alloy_sol_types5types2ty23validate_and_detokenize28_$u7b$$u7b$closure$u7d$$u7d$17h8438d70efab66c9eE"(ptr sret([48 x i8]) align 8 %_0, i1 zeroext %op, ptr align 1 %_6)
   br label %bb5
 
 bb5:                                              ; preds = %bb3, %bb2
@@ -4021,7 +3568,7 @@ start:
   %slot = alloca [40 x i8], align 8
   store ptr %self, ptr %self.dbg.spill, align 8
   call void @"_ZN59_$LT$stylus_sdk..host..VM$u20$as$u20$core..clone..Clone$GT$5clone17h57fb49d176959b54E"(ptr align 1 %self)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 @anon.b7c2725e621f0c23a77f5b895c93f166.1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 @anon.4c2ddb19647d588107b2230d5484af4a.1, i64 32, i1 false)
   call void @"_ZN93_$LT$stylus_sdk..storage..StorageBool$u20$as$u20$stylus_sdk..storage..traits..StorageType$GT$3new17h0437e8a1676f121cE"(ptr sret([40 x i8]) align 8 %slot, ptr align 8 %0, i8 0)
   %_5 = call zeroext i1 @_ZN10stylus_sdk7storage11StorageBool3get17heb9dac71421e0099E(ptr align 8 %slot)
   br i1 %_5, label %bb4, label %bb6
@@ -4041,38 +3588,7 @@ bb8:                                              ; preds = %bb4, %bb6
 }
 
 ; Function Attrs: uwtable
-define zeroext i1 @_ZN15stylus_contract14SimpleContract10mock_check17he714e8cacb6b817bE(ptr align 1 %self, i32 %number) unnamed_addr #1 {
-start:
-  %rhs.dbg.spill.i4 = alloca [4 x i8], align 4
-  %self.dbg.spill.i5 = alloca [4 x i8], align 4
-  %rhs.dbg.spill.i1 = alloca [4 x i8], align 4
-  %self.dbg.spill.i2 = alloca [4 x i8], align 4
-  %rhs.dbg.spill.i = alloca [4 x i8], align 4
-  %self.dbg.spill.i = alloca [4 x i8], align 4
-  %y.dbg.spill = alloca [4 x i8], align 4
-  %x.dbg.spill = alloca [4 x i8], align 4
-  %number.dbg.spill = alloca [4 x i8], align 4
-  %self.dbg.spill = alloca [8 x i8], align 8
-  store ptr %self, ptr %self.dbg.spill, align 8
-  store i32 %number, ptr %number.dbg.spill, align 4
-  store i32 %number, ptr %self.dbg.spill.i2, align 4
-  store i32 %number, ptr %rhs.dbg.spill.i1, align 4
-  %_0.i3 = mul i32 %number, %number
-  store i32 %_0.i3, ptr %x.dbg.spill, align 4
-  store i32 %_0.i3, ptr %self.dbg.spill.i5, align 4
-  store i32 19, ptr %rhs.dbg.spill.i4, align 4
-  call void @"_ZN4core3num21_$LT$impl$u20$u32$GT$13unchecked_add18precondition_check17h7cbffd0bc5c7c334E"(i32 %_0.i3, i32 19) #15
-  %_0.i6 = add nuw i32 %_0.i3, 19
-  store i32 %_0.i6, ptr %self.dbg.spill.i, align 4
-  store i32 10, ptr %rhs.dbg.spill.i, align 4
-  %_0.i = mul i32 %_0.i6, 10
-  store i32 %_0.i, ptr %y.dbg.spill, align 4
-  %_0 = icmp eq i32 %_0.i, 1000
-  ret i1 %_0
-}
-
-; Function Attrs: uwtable
-define zeroext i1 @_ZN15stylus_contract14SimpleContract14advanced_check17h3d70cabb99fbfd31E(ptr align 1 %self, i32 %secret, i1 zeroext %flag) unnamed_addr #1 {
+define zeroext i1 @_ZN15stylus_contract14SimpleContract10mock_check17hbe25febe28086a03E(ptr align 1 %self, i32 %secret, i1 zeroext %flag) unnamed_addr #1 {
 start:
   %rhs.dbg.spill.i1 = alloca [4 x i8], align 4
   %self.dbg.spill.i2 = alloca [4 x i8], align 4
@@ -4101,11 +3617,11 @@ bb1:                                              ; preds = %start
   store i32 3, ptr %rhs.dbg.spill.i1, align 4
   %_0.i3 = mul i32 %_6, 3
   store i32 %_0.i3, ptr %result, align 4
-  br label %bb7
+  br label %bb8
 
 bb4:                                              ; preds = %bb3
   store i8 1, ptr %_0, align 1
-  br label %bb10
+  br label %bb13
 
 bb5:                                              ; preds = %bb3
   %_9 = load i32, ptr %result, align 4
@@ -4113,27 +3629,41 @@ bb5:                                              ; preds = %bb3
   store i32 100, ptr %rhs.dbg.spill.i, align 4
   %_0.i = add i32 %_9, 100
   store i32 %_0.i, ptr %result, align 4
-  br label %bb7
-
-bb10:                                             ; preds = %bb9, %bb8, %bb4
-  %2 = load i8, ptr %_0, align 1
-  %3 = trunc nuw i8 %2 to i1
-  ret i1 %3
-
-bb7:                                              ; preds = %bb5, %bb1
-  %4 = icmp eq i32 %secret, 800
-  br i1 %4, label %bb8, label %bb9
-
-bb8:                                              ; preds = %bb7
-  store i8 1, ptr %_0, align 1
-  br label %bb10
-
-bb9:                                              ; preds = %bb7
   %_10 = load i32, ptr %result, align 4
-  %5 = icmp eq i32 %_10, 102
-  %6 = zext i1 %5 to i8
-  store i8 %6, ptr %_0, align 1
-  br label %bb10
+  %2 = icmp eq i32 %_10, 101
+  br i1 %2, label %bb7, label %bb8
+
+bb13:                                             ; preds = %bb12, %bb11, %bb9, %bb4
+  %3 = load i8, ptr %_0, align 1
+  %4 = trunc nuw i8 %3 to i1
+  ret i1 %4
+
+bb7:                                              ; preds = %bb5
+  store i32 102, ptr %result, align 4
+  br label %bb8
+
+bb8:                                              ; preds = %bb7, %bb5, %bb1
+  %5 = icmp eq i32 %secret, 800
+  br i1 %5, label %bb9, label %bb10
+
+bb9:                                              ; preds = %bb8
+  store i8 1, ptr %_0, align 1
+  br label %bb13
+
+bb10:                                             ; preds = %bb8
+  %6 = icmp eq i32 %secret, 800
+  br i1 %6, label %bb11, label %bb12
+
+bb11:                                             ; preds = %bb10
+  store i8 0, ptr %_0, align 1
+  br label %bb13
+
+bb12:                                             ; preds = %bb10
+  %_11 = load i32, ptr %result, align 4
+  %7 = icmp eq i32 %_11, 102
+  %8 = zext i1 %7 to i8
+  store i8 %8, ptr %_0, align 1
+  br label %bb13
 }
 
 ; Function Attrs: uwtable
@@ -4144,43 +3674,33 @@ start:
   %_3 = alloca [1 x i8], align 1
   store i32 %selector, ptr %selector.dbg.spill, align 4
   store i8 %purity, ptr %purity.dbg.spill, align 1
-  switch i32 %selector, label %bb1 [
-    i32 1195846358, label %bb3
-    i32 2039434019, label %bb2
-  ]
+  %0 = icmp eq i32 %selector, -2145704751
+  br i1 %0, label %bb2, label %bb1
+
+bb2:                                              ; preds = %start
+  %1 = call zeroext i1 @_ZN10stylus_sdk7methods6Purity14allow_override17hcedb9978f7a2f649E(ptr align 1 @alloc_8821998f047ca62cad40e6bc4e4d87c4, i8 %purity)
+  %2 = zext i1 %1 to i8
+  store i8 %2, ptr %_3, align 1
+  br label %bb3
 
 bb1:                                              ; preds = %start
   store i8 1, ptr %_3, align 1
-  br label %bb4
+  br label %bb3
 
-bb3:                                              ; preds = %start
-  %0 = call zeroext i1 @_ZN10stylus_sdk7methods6Purity14allow_override17hcedb9978f7a2f649E(ptr align 1 @alloc_8821998f047ca62cad40e6bc4e4d87c4, i8 %purity)
-  %1 = zext i1 %0 to i8
-  store i8 %1, ptr %_3, align 1
-  br label %bb4
-
-bb2:                                              ; preds = %start
-  %2 = call zeroext i1 @_ZN10stylus_sdk7methods6Purity14allow_override17hcedb9978f7a2f649E(ptr align 1 @alloc_8821998f047ca62cad40e6bc4e4d87c4, i8 %purity)
-  %3 = zext i1 %2 to i8
-  store i8 %3, ptr %_3, align 1
-  br label %bb4
-
-bb4:                                              ; preds = %bb2, %bb3, %bb1
-  %4 = load i8, ptr %_3, align 1
-  %_0 = trunc nuw i8 %4 to i1
+bb3:                                              ; preds = %bb1, %bb2
+  %3 = load i8, ptr %_3, align 1
+  %_0 = trunc nuw i8 %3 to i1
   ret i1 %_0
 }
 
 ; Function Attrs: uwtable
 define void @_ZN15stylus_contract14SimpleContract25__stylus_assert_overrides17hd734b3cf5957b872E() unnamed_addr #1 {
 start:
-  %_9 = alloca [48 x i8], align 8
-  %_7 = alloca [1 x i8], align 1
   %_4 = alloca [48 x i8], align 8
   %_2 = alloca [1 x i8], align 1
   store i8 1, ptr %_2, align 1
   %0 = load i8, ptr %_2, align 1
-  %_1 = call zeroext i1 @_ZN15stylus_contract14SimpleContract23__stylus_allow_override17h072bf81ba2e6d309E(i32 1195846358, i8 %0)
+  %_1 = call zeroext i1 @_ZN15stylus_contract14SimpleContract23__stylus_allow_override17h072bf81ba2e6d309E(i32 -2145704751, i8 %0)
   br i1 %_1, label %bb2, label %bb3
 
 bb3:                                              ; preds = %start
@@ -4189,17 +3709,6 @@ bb3:                                              ; preds = %start
   unreachable
 
 bb2:                                              ; preds = %start
-  store i8 1, ptr %_7, align 1
-  %1 = load i8, ptr %_7, align 1
-  %_6 = call zeroext i1 @_ZN15stylus_contract14SimpleContract23__stylus_allow_override17h072bf81ba2e6d309E(i32 2039434019, i8 %1)
-  br i1 %_6, label %bb6, label %bb7
-
-bb7:                                              ; preds = %bb2
-  call void @_ZN4core3fmt9Arguments9new_const17hc9047b1df4eac4b9E(ptr sret([48 x i8]) align 8 %_9, ptr align 8 @alloc_42b515b58d35ad2f12fe48a98b931dc2)
-  call void @_ZN4core9panicking9panic_fmt17h529fda7ea817ba4fE(ptr align 8 %_9, ptr align 8 @alloc_f1e4470742ad6705a1f7c38a8b53afbf) #12
-  unreachable
-
-bb6:                                              ; preds = %bb2
   ret void
 }
 
@@ -4249,9 +3758,6 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #8
 declare void @_ZN4core9panicking11panic_const24panic_const_add_overflow17he3f17e21ee4f3d6cE(ptr align 8) unnamed_addr #6
 
 ; Function Attrs: inlinehint uwtable
-declare void @_ZN15alloy_sol_types3abi7decoder15decode_sequence17h633b8bab71726503E(ptr sret([48 x i8]) align 8, ptr align 1, i64, i1 zeroext) unnamed_addr #0
-
-; Function Attrs: inlinehint uwtable
 declare zeroext i1 @"_ZN5alloc3vec10partial_eq102_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$$u5b$U$u5d$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A$GT$$GT$2ne17h970e7e2e7b7f5a01E"(ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: inlinehint uwtable
@@ -4274,9 +3780,6 @@ declare void @"_ZN4core3ptr59drop_in_place$LT$alloy_sol_types..abi..encoder..Enc
 
 ; Function Attrs: inlinehint uwtable
 declare void @_ZN15alloy_sol_types3abi7encoder15encode_sequence17he220e172af9b5c26E(ptr sret([24 x i8]) align 8, ptr align 1) unnamed_addr #0
-
-; Function Attrs: inlinehint uwtable
-declare void @_ZN15alloy_sol_types3abi7encoder15encode_sequence17hd285dc940dbc2e64E(ptr sret([24 x i8]) align 8, ptr align 1) unnamed_addr #0
 
 ; Function Attrs: uwtable
 declare void @"_ZN5alloc3vec37Vec$LT$$u5b$T$u3b$$u20$N$u5d$$C$A$GT$14into_flattened17hb39a67f5092505feE"(ptr sret([24 x i8]) align 8, ptr align 8) unnamed_addr #1
@@ -4317,9 +3820,6 @@ declare void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17
 ; Function Attrs: inlinehint uwtable
 declare void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4dacdd38543812deE"(ptr sret([48 x i8]) align 8, ptr align 8) unnamed_addr #0
 
-; Function Attrs: uwtable
-declare void @"_ZN4core3ptr131drop_in_place$LT$core..result..Result$LT$$LP$alloy_sol_types..abi..token..WordToken$C$$RP$$C$alloy_sol_types..errors..Error$GT$$GT$17h1c7a2591764cd77bE"(ptr align 8) unnamed_addr #1
-
 ; Function Attrs: inlinehint uwtable
 declare { ptr, ptr } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4iter17h19e3e219a0b59a76E"(ptr align 1, i64) unnamed_addr #0
 
@@ -4335,12 +3835,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #8
-
-; Function Attrs: cold noinline noreturn nounwind uwtable
-declare void @_ZN4core9panicking14panic_nounwind17hb89b2a5de4429251E(ptr align 1, i64) unnamed_addr #10
-
 ; Function Attrs: uwtable
 declare void @"_ZN4core3ptr51drop_in_place$LT$alloy_sol_types..errors..Error$GT$17h54dee9f67784c191E"(ptr align 8) unnamed_addr #1
 
@@ -4352,6 +3846,9 @@ declare void @_ZN4core9panicking11panic_const23panic_const_div_by_zero17h8a13aa9
 
 ; Function Attrs: cold minsize noinline noreturn nounwind optsize uwtable
 declare void @_ZN4core9panicking19panic_cannot_unwind17h620b5c02cb97e1ccE() unnamed_addr #7
+
+; Function Attrs: cold noinline noreturn nounwind uwtable
+declare void @_ZN4core9panicking14panic_nounwind17hb89b2a5de4429251E(ptr align 1, i64) unnamed_addr #10
 
 ; Function Attrs: cold noinline noreturn uwtable
 declare void @_ZN4core9panicking9panic_fmt17h529fda7ea817ba4fE(ptr align 8, ptr align 8) unnamed_addr #6
